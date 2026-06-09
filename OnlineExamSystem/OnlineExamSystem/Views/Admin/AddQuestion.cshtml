@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "AddQuestion";
+}
+
+@model OnlineExamSystem.Models.Question
+
+<h2>Add Question</h2>
+
+@using (Html.BeginForm())
+{
+    <label>Exam Id</label>
+    @Html.TextBoxFor(x => x.ExamId)
+
+    <br />
+    <br />
+
+    <label>Question</label>
+    @Html.TextBoxFor(x => x.QuestionText)
+
+    <br />
+    <br />
+
+    <label>Option A</label>
+    @Html.TextBoxFor(x => x.OptionA)
+
+    <br />
+    <br />
+
+    <label>Option B</label>
+    @Html.TextBoxFor(x => x.OptionB)
+
+    <br />
+    <br />
+
+    <label>Option C</label>
+    @Html.TextBoxFor(x => x.OptionC)
+
+    <br />
+    <br />
+
+    <label>Option D</label>
+    @Html.TextBoxFor(x => x.OptionD)
+
+    <br />
+    <br />
+
+    <label>Correct Answer</label>
+    @Html.TextBoxFor(x => x.CorrectAnswer)
+
+    <br />
+    <br />
+
+    <button type="submit">
+        Save
+    </button>
+}
+
+<h3 style="color:green">
+    @ViewBag.Message
+</h3>

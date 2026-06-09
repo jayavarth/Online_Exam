@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ViewQuestions";
+}
+
+@model IEnumerable<OnlineExamSystem.Models.Question>
+
+<h2>Questions</h2>
+
+<table border="1">
+
+    <tr>
+        <th>ID</th>
+        <th>Question</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var q in Model)
+    {
+        <tr>
+            <td>@q.QuestionId</td>
+            <td>@q.QuestionText</td>
+
+            <td>
+                <a href="/Admin/DeleteQuestion/@q.QuestionId">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,26 @@
+﻿<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Email</label>
+        <input type="text" name="email" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Password</label>
+        <input type="password" name="password" />
+    </div>
+
+    <br />
+
+    <button type="submit">
+        Login
+    </button>
+}
+
+<h3 style="color:red">
+    @ViewBag.Message
+</h3>

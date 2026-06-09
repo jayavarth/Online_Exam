@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "StartExam";
+}
+
+@model IEnumerable<OnlineExamSystem.Models.Question>
+
+<h2>Online Exam</h2>
+<div id="timer">
+
+    30:00
+
+</div>
+<form method="post"
+      action="/Exam/SubmitExam"
+      id="examForm">
+
+    @foreach (var q in Model)
+    {
+        <hr />
+
+        <input type="hidden"
+               name="QuestionId"
+               value="@q.QuestionId" />
+
+        <h4>@q.QuestionText</h4>
+
+        <input type="radio"
+               name="Answer_@q.QuestionId"
+               value="A" /> @q.OptionA
+
+            <br />
+
+            <input type="radio"
+                   name="Answer_@q.QuestionId"
+                   value="B" /> @q.OptionB
+
+                <br />
+
+                <input type="radio"
+                       name="Answer_@q.QuestionId"
+                       value="C" /> @q.OptionC
+
+                    <br />
+
+                    <input type="radio"
+                           name="Answer_@q.QuestionId"
+                           value="D" /> @q.OptionD
+                    }
+
+    <br />
+    <br />
+
+    <button type="submit">
+        Submit Exam
+    </button>
+
+</form>
+
+<script>
+
+var time = 1800;
+
+setInterval(function(){
+
+time--;
+
+var minutes =
+Math.floor(time / 60);
+
+var seconds =
+time % 60;
+
+document.getElementById("timer")
+.innerHTML =
+minutes + ":" + seconds;
+
+if(time <= 0)
+{
+document.getElementById(
+"examForm").submit();
+}
+
+},1000);
+
+</script>
+

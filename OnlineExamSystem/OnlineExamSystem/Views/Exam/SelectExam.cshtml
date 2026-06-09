@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "SelectExam";
+}
+
+@model IEnumerable<OnlineExamSystem.Models.Exam>
+
+<h2>Select Exam</h2>
+
+<table border="1">
+
+    <tr>
+        <th>Exam</th>
+        <th>Level</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ExamName</td>
+            <td>@item.LevelNo</td>
+
+            <td>
+                <a href="/Exam/Instructions/@item.ExamId">
+                    Start
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

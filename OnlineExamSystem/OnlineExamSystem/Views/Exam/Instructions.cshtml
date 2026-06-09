@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Instructions";
+}
+@model OnlineExamSystem.Models.Exam
+
+<h2>Exam Instructions</h2>
+
+<p>
+    Total Questions :
+    @Model.TotalQuestions
+</p>
+
+<p>
+    Pass Marks :
+    @Model.PassMarks
+</p>
+
+<p>
+    Duration :
+    @Model.DurationMinutes Minutes
+</p>
+
+<a href="/Exam/StartExam/@Model.ExamId">
+    Start Exam
+</a>
+

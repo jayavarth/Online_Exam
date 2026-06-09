@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "ResultCard";
+}
+
+@model OnlineExamSystem.Models.Result
+
+<h2>Result Card</h2>
+
+<hr />
+
+<h3>
+    Score :
+    @Model.Score
+</h3>
+
+<h3>
+    Status :
+    @Model.Status
+</h3>
+
+<h3>
+    Date :
+    @Model.ExamDate
+</h3>
+
+@if (Model.Status == "PASS")
+{
+    <h2 style="color:green">
+        Congratulations
+    </h2>
+}
+else
+{
+    <h2 style="color:red">
+        Better Luck Next Time
+    </h2>
+}
+
+<a href="/Account/Dashboard">
+    Back To Dashboard
+</a>
+

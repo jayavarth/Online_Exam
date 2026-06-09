@@ -1,0 +1,85 @@
+﻿
+
+
+@model OnlineExamSystem.Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>User Registration</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Full Name</label>
+        @Html.TextBoxFor(m => m.FullName)
+    </div>
+
+    <br />
+
+    <div>
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+
+    <br />
+
+    <div>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password)
+    </div>
+
+    <br />
+
+    <div>
+        <label>Mobile</label>
+        @Html.TextBoxFor(m => m.Mobile)
+    </div>
+
+    <br />
+
+    <div>
+        <label>City</label>
+        @Html.TextBoxFor(m => m.City)
+    </div>
+
+    <br />
+
+    <div>
+        <label>State</label>
+        @Html.TextBoxFor(m => m.State)
+    </div>
+
+    <br />
+
+    <div>
+        <label>DOB</label>
+        @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}",
+             new { type = "date" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Qualification</label>
+        @Html.TextBoxFor(m => m.Qualification)
+    </div>
+
+    <br />
+
+    <div>
+        <label>Year Of Completion</label>
+        @Html.TextBoxFor(m => m.YearOfCompletion)
+    </div>
+
+    <br />
+
+    <button type="submit">
+        Register
+    </button>
+}
+
+<h3 style="color:red">
+    @ViewBag.Message
+</h3>

@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ViewResults";
+}
+
+
+@model IEnumerable<OnlineExamSystem.Models.Result>
+
+<h2>Exam Results</h2>
+
+<table border="1">
+
+    <tr>
+        <th>User Id</th>
+        <th>Exam Id</th>
+        <th>Score</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var r in Model)
+    {
+        <tr>
+            <td>@r.UserId</td>
+            <td>@r.ExamId</td>
+            <td>@r.Score</td>
+            <td>@r.Status</td>
+        </tr>
+    }
+
+</table>

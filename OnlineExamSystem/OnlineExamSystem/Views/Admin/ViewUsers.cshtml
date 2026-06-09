@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "ViewUsers";
+}
+
+
+@model IEnumerable<OnlineExamSystem.Models.User>
+
+<h2>Registered Users</h2>
+
+<table border="1">
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+    </tr>
+
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.FullName</td>
+            <td>@u.Email</td>
+            <td>@u.Mobile</td>
+        </tr>
+    }
+
+</table>
