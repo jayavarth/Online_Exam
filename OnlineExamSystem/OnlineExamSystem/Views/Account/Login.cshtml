@@ -1,5 +1,6 @@
 ﻿<h2>User Login</h2>
 
+
 @using (Html.BeginForm())
 {
     <label>Email</label>
@@ -40,3 +41,9 @@
 <h3 style="color:red">
     @ViewBag.Message
 </h3>
+@if (ViewBag.Message != null)
+{
+    <div style="color:red;font-weight:bold;">
+        @ViewBag.Message
+    </div>
+}

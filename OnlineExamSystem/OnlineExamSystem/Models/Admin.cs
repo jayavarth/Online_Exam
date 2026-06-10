@@ -9,11 +9,12 @@ namespace OnlineExamSystem.Models
         public class Admin
         {
             [Key]
+        [Required]
             public int AdminId { get; set; }
-
-            public string Email { get; set; }
-
-            public string Password { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
         }
     
 }

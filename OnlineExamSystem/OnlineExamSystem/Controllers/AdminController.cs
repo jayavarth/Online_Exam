@@ -25,50 +25,84 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
+        //    [HttpPost]
+        //    public ActionResult Login(
+        //string email,
+        //string password,
+        //string captchaInput)
+        //    {
+        //        if (captchaInput != Session["AdminCaptcha"].ToString())
+        //        {
+        //            ViewBag.Message = "Invalid Captcha";
+
+        //            Random random = new Random();
+
+        //            int captcha = random.Next(1000, 9999);
+
+        //            Session["AdminCaptcha"] = captcha;
+
+        //            ViewBag.Captcha = captcha;
+
+        //            return View();
+        //        }
+
+        //        var admin =
+        //            db.Admins.FirstOrDefault(
+        //                x => x.Email == email &&
+        //                     x.Password == password);
+
+        //        if (admin != null)
+        //        {
+        //            Session["Admin"] = admin.Email;
+
+        //            return RedirectToAction("Dashboard");
+        //        }
+
+        //        ViewBag.Message = "Invalid Login";
+
+        //        Random r = new Random();
+
+        //        int c = r.Next(1000, 9999);
+
+        //        Session["AdminCaptcha"] = c;
+
+        //        ViewBag.Captcha = c;
+
+        //        return View();
+        //    }
         [HttpPost]
         public ActionResult Login(
-    string email,
-    string password,
-    string captchaInput)
+        string email,
+        string password,
+        string captchaInput)
         {
-            if (captchaInput != Session["AdminCaptcha"].ToString())
+            // Captcha Validation
+            if (captchaInput != Session["AdminCaptcha"]?.ToString())
             {
                 ViewBag.Message = "Invalid Captcha";
-
-                Random random = new Random();
-
-                int captcha = random.Next(1000, 9999);
-
-                Session["AdminCaptcha"] = captcha;
-
-                ViewBag.Captcha = captcha;
-
                 return View();
             }
 
-            var admin =
-                db.Admins.FirstOrDefault(
-                    x => x.Email == email &&
-                         x.Password == password);
+            // Check Email Exists
+            var admin = db.Admins.FirstOrDefault(x => x.Email == email);
 
-            if (admin != null)
+            if (admin == null)
             {
-                Session["Admin"] = admin.Email;
-
-                return RedirectToAction("Dashboard");
+                ViewBag.Message = "Admin Email Not Found";
+                return View();
             }
 
-            ViewBag.Message = "Invalid Login";
+            // Check Password
+            if (admin.Password != password)
+            {
+                ViewBag.Message = "Incorrect Password";
+                return View();
+            }
 
-            Random r = new Random();
+            // Successful Login
+            Session["Admin"] = admin.Email;
 
-            int c = r.Next(1000, 9999);
-
-            Session["AdminCaptcha"] = c;
-
-            ViewBag.Captcha = c;
-
-            return View();
+            return RedirectToAction("Dashboard");
         }
         public ActionResult Dashboard()
         {

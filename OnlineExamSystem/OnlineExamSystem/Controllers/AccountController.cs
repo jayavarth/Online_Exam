@@ -16,29 +16,80 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public ActionResult Register(User user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var existingUser =
+        //        db.Users.FirstOrDefault(x => x.Email == user.Email);
+        //        if (db.Users.Any(x => x.Email == user.Email))
+        //        {
+        //            ModelState.AddModelError(
+        //                "Email",
+        //                "Email already registered");
+        //        }
+
+        //        if (existingUser != null)
+        //        {
+        //            ViewBag.Message = "Email already exists";
+        //            return View();
+        //        }
+        //        int age = DateTime.Now.Year - user.DOB.Year;
+
+        //        if (age < 18)
+        //        {
+        //            ModelState.AddModelError(
+        //                "DOB",
+        //                "Age must be 18 or above");
+        //        }
+        //        db.Users.Add(user);
+        //        db.SaveChanges();
+
+        //        return RedirectToAction("Login");
+        //    }
+
+        //    return View();
+        //}
         [HttpPost]
         public ActionResult Register(User user)
         {
+            if (db.Users.Any(x => x.Email == user.Email))
+            {
+                ModelState.AddModelError(
+                    "Email",
+                    "Email already exists");
+            }
+
+            if (db.Users.Any(x => x.Mobile == user.Mobile))
+            {
+                ModelState.AddModelError(
+                    "Mobile",
+                    "Mobile already exists");
+            }
+
+            int age = DateTime.Now.Year - user.DOB.Year;
+
+            if (age < 18)
+            {
+                ModelState.AddModelError(
+                    "DOB",
+                    "Age must be 18+");
+            }
+
             if (ModelState.IsValid)
             {
-                var existingUser =
-                    db.Users.FirstOrDefault(x => x.Email == user.Email);
-
-                if (existingUser != null)
-                {
-                    ViewBag.Message = "Email already exists";
-                    return View();
-                }
-
                 db.Users.Add(user);
                 db.SaveChanges();
+
+                TempData["Success"] =
+                    "Registration Successful";
 
                 return RedirectToAction("Login");
             }
 
-            return View();
+            return View(user);
         }
-
 
         //2
         public ActionResult Login()
@@ -59,12 +110,13 @@ namespace OnlineExamSystem.Controllers
     string password,
     string captchaInput)
         {
-            if (captchaInput != Session["Captcha"].ToString())
+            // Captcha Validation
+            if (captchaInput != Session["Captcha"]?.ToString())
             {
                 ViewBag.Message = "Invalid Captcha";
 
-                Random random = new Random();
-                int captcha = random.Next(1000, 9999);
+                Random r = new Random();
+                int captcha = r.Next(1000, 9999);
 
                 Session["Captcha"] = captcha;
                 ViewBag.Captcha = captcha;
@@ -72,28 +124,40 @@ namespace OnlineExamSystem.Controllers
                 return View();
             }
 
-            var user =
-                db.Users.FirstOrDefault(
-                    x => x.Email == email &&
-                         x.Password == password);
+            // Check Email Exists
+            var user = db.Users.FirstOrDefault(x => x.Email == email);
 
-            if (user != null)
+            if (user == null)
             {
-                Session["UserId"] = user.UserId;
-                Session["UserName"] = user.FullName;
+                ViewBag.Message = "Email is not registered";
 
-                return RedirectToAction("Dashboard");
+                Random r = new Random();
+                int captcha = r.Next(1000, 9999);
+
+                Session["Captcha"] = captcha;
+                ViewBag.Captcha = captcha;
+
+                return View();
             }
 
-            ViewBag.Message = "Invalid Login";
+            // Check Password
+            if (user.Password != password)
+            {
+                ViewBag.Message = "Incorrect Password";
 
-            Random r = new Random();
-            int c = r.Next(1000, 9999);
+                Random r = new Random();
+                int captcha = r.Next(1000, 9999);
 
-            Session["Captcha"] = c;
-            ViewBag.Captcha = c;
+                Session["Captcha"] = captcha;
+                ViewBag.Captcha = captcha;
 
-            return View();
+                return View();
+            }
+
+            Session["UserId"] = user.UserId;
+            Session["UserName"] = user.FullName;
+
+            return RedirectToAction("Dashboard");
         }
         //3
         public ActionResult Dashboard()
