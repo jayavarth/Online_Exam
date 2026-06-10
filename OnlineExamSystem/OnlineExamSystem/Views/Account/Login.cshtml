@@ -1,25 +1,41 @@
-﻿<h2>Login</h2>
+﻿<h2>User Login</h2>
 
 @using (Html.BeginForm())
 {
-    <div>
-        <label>Email</label>
-        <input type="text" name="email" />
-    </div>
+    <label>Email</label>
+    <input type="text" name="email" required />
 
     <br />
+    <br />
 
-    <div>
-        <label>Password</label>
-        <input type="password" name="password" />
-    </div>
+    <label>Password</label>
+    <input type="password" name="password" required />
 
+    <br />
+    <br />
+
+    <h3>
+        Captcha : @ViewBag.Captcha
+    </h3>
+
+    <input type="text"
+           name="captchaInput"
+           placeholder="Enter Captcha"
+           required />
+
+    <br />
     <br />
 
     <button type="submit">
         Login
     </button>
 }
+
+<br />
+
+<a href="/Account/ForgotPassword">
+    Forgot Password?
+</a>
 
 <h3 style="color:red">
     @ViewBag.Message

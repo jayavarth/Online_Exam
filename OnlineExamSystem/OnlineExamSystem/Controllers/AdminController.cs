@@ -14,17 +14,42 @@ namespace OnlineExamSystem.Controllers
 
         public ActionResult Login()
         {
+            Random random = new Random();
+
+            int captcha = random.Next(1000, 9999);
+
+            Session["AdminCaptcha"] = captcha;
+
+            ViewBag.Captcha = captcha;
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(string email, string password)
+        public ActionResult Login(
+    string email,
+    string password,
+    string captchaInput)
         {
-            var admin = db.Admins.FirstOrDefault
-            (
-                x => x.Email == email &&
-                     x.Password == password
-            );
+            if (captchaInput != Session["AdminCaptcha"].ToString())
+            {
+                ViewBag.Message = "Invalid Captcha";
+
+                Random random = new Random();
+
+                int captcha = random.Next(1000, 9999);
+
+                Session["AdminCaptcha"] = captcha;
+
+                ViewBag.Captcha = captcha;
+
+                return View();
+            }
+
+            var admin =
+                db.Admins.FirstOrDefault(
+                    x => x.Email == email &&
+                         x.Password == password);
 
             if (admin != null)
             {
@@ -35,9 +60,16 @@ namespace OnlineExamSystem.Controllers
 
             ViewBag.Message = "Invalid Login";
 
+            Random r = new Random();
+
+            int c = r.Next(1000, 9999);
+
+            Session["AdminCaptcha"] = c;
+
+            ViewBag.Captcha = c;
+
             return View();
         }
-
         public ActionResult Dashboard()
         {
             if (Session["Admin"] == null)
@@ -89,6 +121,30 @@ namespace OnlineExamSystem.Controllers
             var results = db.Results.ToList();
 
             return View(results);
+        }
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(string email, string newPassword)
+        {
+            var admin = db.Admins.FirstOrDefault(x => x.Email == email);
+
+            if (admin != null)
+            {
+                admin.Password = newPassword;
+                db.SaveChanges();
+
+                ViewBag.Message = "Password Updated";
+            }
+            else
+            {
+                ViewBag.Message = "Admin Not Found";
+            }
+
+            return View();
         }
     }
 }

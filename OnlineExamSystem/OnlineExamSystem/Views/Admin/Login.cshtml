@@ -1,17 +1,27 @@
 ﻿
-
 <h2>Admin Login</h2>
 
 @using (Html.BeginForm())
 {
     <label>Email</label>
-    <input type="text" name="email" />
+    <input type="text" name="email" required />
 
     <br />
     <br />
 
     <label>Password</label>
-    <input type="password" name="password" />
+    <input type="password" name="password" required />
+
+    <br />
+    <br />
+
+    <h3>
+        Captcha : @ViewBag.Captcha
+    </h3>
+
+    <input type="text"
+           name="captchaInput"
+           required />
 
     <br />
     <br />
@@ -20,6 +30,12 @@
         Login
     </button>
 }
+
+<br />
+
+<a href="/Admin/ForgotPassword">
+    Forgot Password?
+</a>
 
 <h3 style="color:red">
     @ViewBag.Message

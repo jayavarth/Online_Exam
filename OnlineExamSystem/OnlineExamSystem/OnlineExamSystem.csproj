@@ -211,6 +211,8 @@
     <Content Include="Views\Exam\StartExam.cshtml" />
     <Content Include="Views\Exam\ResultCard.cshtml" />
     <Content Include="Views\Exam\MyResults.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Admin\ForgotPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

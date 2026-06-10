@@ -43,18 +43,39 @@ namespace OnlineExamSystem.Controllers
         //2
         public ActionResult Login()
         {
+            Random random = new Random();
+
+            int captcha = random.Next(1000, 9999);
+
+            Session["Captcha"] = captcha;
+
+            ViewBag.Captcha = captcha;
+
             return View();
         }
-
         [HttpPost]
-        public ActionResult Login(string email, string password)
+        public ActionResult Login(
+    string email,
+    string password,
+    string captchaInput)
         {
+            if (captchaInput != Session["Captcha"].ToString())
+            {
+                ViewBag.Message = "Invalid Captcha";
+
+                Random random = new Random();
+                int captcha = random.Next(1000, 9999);
+
+                Session["Captcha"] = captcha;
+                ViewBag.Captcha = captcha;
+
+                return View();
+            }
+
             var user =
-                db.Users.FirstOrDefault
-                (
+                db.Users.FirstOrDefault(
                     x => x.Email == email &&
-                         x.Password == password
-                );
+                         x.Password == password);
 
             if (user != null)
             {
@@ -64,17 +85,46 @@ namespace OnlineExamSystem.Controllers
                 return RedirectToAction("Dashboard");
             }
 
-            ViewBag.Message = "Invalid Email or Password";
+            ViewBag.Message = "Invalid Login";
+
+            Random r = new Random();
+            int c = r.Next(1000, 9999);
+
+            Session["Captcha"] = c;
+            ViewBag.Captcha = c;
 
             return View();
         }
-
         //3
         public ActionResult Dashboard()
         {
             if (Session["UserId"] == null)
             {
                 return RedirectToAction("Login");
+            }
+
+            return View();
+        }
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(string email, string newPassword)
+        {
+            var user = db.Users.FirstOrDefault(x => x.Email == email);
+
+            if (user != null)
+            {
+                user.Password = newPassword;
+                db.SaveChanges();
+
+                ViewBag.Message = "Password Updated Successfully";
+            }
+            else
+            {
+                ViewBag.Message = "Email Not Found";
             }
 
             return View();
