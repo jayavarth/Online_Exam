@@ -1,28 +1,219 @@
-﻿
+﻿@model IEnumerable<OnlineExamSystem.Models.User>
+
 @{
-    ViewBag.Title = "ViewUsers";
+    Layout = null;
 }
 
-
-@model IEnumerable<OnlineExamSystem.Models.User>
-
-<h2>Registered Users</h2>
-
-<table border="1">
-
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-    </tr>
-
-    @foreach (var u in Model)
-    {
-        <tr>
-            <td>@u.FullName</td>
-            <td>@u.Email</td>
-            <td>@u.Mobile</td>
-        </tr>
+<style>
+    body {
+        background: #121212;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
     }
 
-</table>
+    .page-container {
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        background: #1e1e1e;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: #5b2be0;
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #333;
+        font-size: 14px;
+    }
+
+    tr:hover {
+        background: #2a2a2a;
+    }
+
+    /* User badge */
+    .user-name {
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .email {
+        color: #bbb;
+        font-size: 13px;
+    }
+
+    .mobile {
+        background: #333;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        display: inline-block;
+    }
+</style>
+
+<div class="page-container">
+
+    <div class="title">👥 Registered Users</div>
+
+    <div class="card">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="user-name">@u.FullName</span>
+                        </td>
+
+                        <td>
+                            <span class="email">@u.Email</span>
+                        </td>
+
+                        <td>
+                            <span class="mobile">@u.Mobile</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>@model IEnumerable<OnlineExamSystem.Models.User>
+
+@{
+    Layout = null;
+}
+
+<style>
+    body {
+        background: #121212;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+    }
+
+    .page-container {
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        background: #1e1e1e;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: #5b2be0;
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #333;
+        font-size: 14px;
+    }
+
+    tr:hover {
+        background: #2a2a2a;
+    }
+
+    /* User badge */
+    .user-name {
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .email {
+        color: #bbb;
+        font-size: 13px;
+    }
+
+    .mobile {
+        background: #333;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        display: inline-block;
+    }
+</style>
+
+<div class="page-container">
+
+    <div class="title">👥 Registered Users</div>
+
+    <div class="card">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="user-name">@u.FullName</span>
+                        </td>
+
+                        <td>
+                            <span class="email">@u.Email</span>
+                        </td>
+
+                        <td>
+                            <span class="mobile">@u.Mobile</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

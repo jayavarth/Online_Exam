@@ -1,30 +1,120 @@
-﻿
+﻿@model IEnumerable<OnlineExamSystem.Models.Result>
+
 @{
-    ViewBag.Title = "ViewResults";
+    Layout = null;
 }
 
-
-@model IEnumerable<OnlineExamSystem.Models.Result>
-
-<h2>Exam Results</h2>
-
-<table border="1">
-
-    <tr>
-        <th>User Id</th>
-        <th>Exam Id</th>
-        <th>Score</th>
-        <th>Status</th>
-    </tr>
-
-    @foreach (var r in Model)
-    {
-        <tr>
-            <td>@r.UserId</td>
-            <td>@r.ExamId</td>
-            <td>@r.Score</td>
-            <td>@r.Status</td>
-        </tr>
+<style>
+    body {
+        background: #121212;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
     }
 
-</table>
+    .page-container {
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        background: #1e1e1e;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th {
+        background: #5b2be0;
+        color: white;
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #333;
+        font-size: 14px;
+    }
+
+    tr:hover {
+        background: #2a2a2a;
+    }
+
+    /* Status Colors */
+    .pass {
+        color: #4caf50;
+        font-weight: bold;
+    }
+
+    .fail {
+        color: #ff4d4d;
+        font-weight: bold;
+    }
+
+    /* Optional badge style */
+    .badge {
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        display: inline-block;
+    }
+
+    .pass-bg {
+        background: rgba(76, 175, 80, 0.2);
+    }
+
+    .fail-bg {
+        background: rgba(255, 77, 77, 0.2);
+    }
+</style>
+
+<div class="page-container">
+
+    <div class="title">📊 Exam Results</div>
+
+    <div class="card">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>Exam Id</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>@r.UserId</td>
+                        <td>@r.ExamId</td>
+                        <td>@r.Score</td>
+
+                        <td>
+                            <span class="badge @(r.Status == "Pass" ? "pass pass-bg" : "fail fail-bg")">
+                                @r.Status
+                            </span>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
