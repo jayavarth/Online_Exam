@@ -1,14 +1,58 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "SelectExam";
 }
 
 @model IEnumerable<OnlineExamSystem.Models.Exam>
 
+<style>
+    h2 {
+        text-align: center;
+        color: darkblue;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+        font-family: Arial;
+    }
+
+    th {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+    }
+
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    .btn-start {
+        padding: 6px 12px;
+        background-color: green;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+        .btn-start:hover {
+            background-color: darkgreen;
+        }
+</style>
+
 <h2>Select Exam</h2>
 
-<table border="1">
-
+<table>
     <tr>
         <th>Exam</th>
         <th>Level</th>
@@ -16,17 +60,16 @@
     </tr>
 
     @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.ExamName</td>
-            <td>@item.LevelNo</td>
-
-            <td>
-                <a href="/Exam/Instructions/@item.ExamId">
-                    Start
-                </a>
-            </td>
-        </tr>
-    }
+{
+    <tr>
+        <td>@item.ExamName</td>
+        <td>@item.LevelNo</td>
+        <td>
+            <a class="btn-start" href="/Exam/Instructions/@item.ExamId">
+                Start
+            </a>
+        </td>
+    </tr>
+}
 
 </table>

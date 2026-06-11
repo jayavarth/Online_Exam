@@ -1,87 +1,130 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "StartExam";
 }
 
 @model IEnumerable<OnlineExamSystem.Models.Question>
 
+<style>
+    body {
+        font-family: Arial;
+    }
+
+    h2 {
+        text-align: center;
+        color: darkblue;
+    }
+
+    #timer {
+        text-align: right;
+        font-size: 20px;
+        color: red;
+        margin-bottom: 15px;
+        padding-right: 20px;
+    }
+
+    .question-box {
+        width: 80%;
+        margin: 15px auto;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 8px gray;
+    }
+
+    .question-text {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .option {
+        margin: 5px 0;
+    }
+
+    .submit-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .submit-btn:hover {
+            background-color: darkgreen;
+        }
+</style>
+
 <h2>Online Exam</h2>
+
 <div id="timer">
-
     30:00
-
 </div>
+
 <form method="post"
       action="/Exam/SubmitExam"
       id="examForm">
 
     @foreach (var q in Model)
-    {
-        <hr />
+{
+    <div class="question-box">
 
         <input type="hidden"
                name="QuestionId"
                value="@q.QuestionId" />
 
-        <h4>@q.QuestionText</h4>
+        <div class="question-text">
+            @q.QuestionText
+        </div>
 
-        <input type="radio"
-               name="Answer_@q.QuestionId"
-               value="A" /> @q.OptionA
+        <div class="option">
+            <input type="radio" name="Answer_@q.QuestionId" value="A" /> @q.OptionA
+        </div>
 
-            <br />
+        <div class="option">
+            <input type="radio" name="Answer_@q.QuestionId" value="B" /> @q.OptionB
+        </div>
 
-            <input type="radio"
-                   name="Answer_@q.QuestionId"
-                   value="B" /> @q.OptionB
+        <div class="option">
+            <input type="radio" name="Answer_@q.QuestionId" value="C" /> @q.OptionC
+        </div>
 
-                <br />
+        <div class="option">
+            <input type="radio" name="Answer_@q.QuestionId" value="D" /> @q.OptionD
+        </div>
 
-                <input type="radio"
-                       name="Answer_@q.QuestionId"
-                       value="C" /> @q.OptionC
+    </div>
+}
 
-                    <br />
-
-                    <input type="radio"
-                           name="Answer_@q.QuestionId"
-                           value="D" /> @q.OptionD
-                    }
-
-    <br />
-    <br />
-
-    <button type="submit">
+    <button type="submit" class="submit-btn">
         Submit Exam
     </button>
 
 </form>
 
 <script>
+    var time = 1800; // 30 minutes
 
-var time = 1800;
+    var timerInterval = setInterval(function () {
 
-setInterval(function(){
+        time--;
 
-time--;
+        var minutes = Math.floor(time / 60);
+        var seconds = time % 60;
 
-var minutes =
-Math.floor(time / 60);
+        // Add leading zero
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
 
-var seconds =
-time % 60;
+        document.getElementById("timer").innerHTML =
+            minutes + ":" + seconds;
 
-document.getElementById("timer")
-.innerHTML =
-minutes + ":" + seconds;
+        if (time <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById("examForm").submit();
+        }
 
-if(time <= 0)
-{
-document.getElementById(
-"examForm").submit();
-}
-
-},1000);
-
+    }, 1000);
 </script>
-

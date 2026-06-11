@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@{
     Layout = null;
 }
@@ -156,3 +157,54 @@
 
 </body>
 </html>
+=======
+﻿<h2>User Login</h2>
+
+
+@using (Html.BeginForm())
+{
+    <label>Email</label>
+    <input type="text" name="email" required />
+
+    <br />
+    <br />
+
+    <label>Password</label>
+    <input type="password" name="password" required />
+
+    <br />
+    <br />
+
+    <h3>
+        Captcha : @ViewBag.Captcha
+    </h3>
+
+    <input type="text"
+           name="captchaInput"
+           placeholder="Enter Captcha"
+           required />
+
+    <br />
+    <br />
+
+    <button type="submit">
+        Login
+    </button>
+}
+
+<br />
+
+<a href="/Account/ForgotPassword">
+    Forgot Password?
+</a>
+
+<h3 style="color:red">
+    @ViewBag.Message
+</h3>
+@if (ViewBag.Message != null)
+{
+    <div style="color:red;font-weight:bold;">
+        @ViewBag.Message
+    </div>
+}
+>>>>>>> fb2f2a762bcaa68b6a19176e922fa80944df2cfc

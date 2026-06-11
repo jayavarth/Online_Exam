@@ -200,7 +200,107 @@
             </div>
         </div>
 
+<<<<<<< HEAD
     </div>
 
 </body>
 </html>
+=======
+@Html.ValidationSummary(true, "", new { @style = "color:red" })
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Full Name</label>
+        @Html.TextBoxFor(m => m.FullName)
+        @Html.ValidationMessageFor(m => m.FullName, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Confirm Password</label>
+        @Html.PasswordFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Mobile</label>
+        @Html.TextBoxFor(m => m.Mobile)
+        @Html.ValidationMessageFor(m => m.Mobile, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>City</label>
+        @Html.TextBoxFor(m => m.City)
+        @Html.ValidationMessageFor(m => m.City, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>State</label>
+        @Html.TextBoxFor(m => m.State)
+        @Html.ValidationMessageFor(m => m.State, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>DOB</label>
+        @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { type = "date" })
+        @Html.ValidationMessageFor(m => m.DOB, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Qualification</label>
+        @Html.TextBoxFor(m => m.Qualification)
+        @Html.ValidationMessageFor(m => m.Qualification, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Year Of Completion</label>
+        @Html.TextBoxFor(m => m.YearOfCompletion)
+        @Html.ValidationMessageFor(m => m.YearOfCompletion, "", new { @style = "color:red" })
+    </div>
+
+    <br />
+
+    <button type="submit">
+        Register
+    </button>
+}
+
+<h3 style="color:red">
+    @ViewBag.Message
+</h3>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+>>>>>>> fb2f2a762bcaa68b6a19176e922fa80944df2cfc
