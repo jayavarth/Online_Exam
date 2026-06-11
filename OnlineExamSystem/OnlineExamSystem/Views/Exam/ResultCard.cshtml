@@ -1,43 +1,83 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ResultCard";
 }
 
 @model OnlineExamSystem.Models.Result
 
-<h2>Result Card</h2>
+<style>
+    .card {
+        width: 400px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px gray;
+        text-align: center;
+        font-family: Arial;
+    }
 
-<hr />
+    h2 {
+        color: darkblue;
+    }
 
-<h3>
-    Score :
-    @Model.Score
-</h3>
+    .score, .status, .date {
+        font-size: 18px;
+        margin: 10px 0;
+    }
 
-<h3>
-    Status :
-    @Model.Status
-</h3>
+    .pass {
+        color: green;
+        font-weight: bold;
+    }
 
-<h3>
-    Date :
-    @Model.ExamDate
-</h3>
+    .fail {
+        color: red;
+        font-weight: bold;
+    }
 
-@if (Model.Status == "PASS")
-{
-    <h2 style="color:green">
-        Congratulations
-    </h2>
-}
-else
-{
-    <h2 style="color:red">
-        Better Luck Next Time
-    </h2>
-}
+    .btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: blue;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
 
-<a href="/Account/Dashboard">
-    Back To Dashboard
-</a>
+        .btn:hover {
+            background-color: darkblue;
+        }
+</style>
 
+<div class="card">
+
+    <h2>Result Card</h2>
+
+    <hr />
+
+    <div class="score">
+        Score: @Model.Score
+    </div>
+
+    <div class="status">
+        Status: @Model.Status
+    </div>
+
+    <div class="date">
+        Date: @Model.ExamDate
+    </div>
+
+    @if (Model.Status == "PASS")
+    {
+    <h3 class="pass">Congratulations</h3>
+    }
+    else
+    {
+    <h3 class="fail">Better Luck Next Time</h3>
+    }
+
+    <a href="/Account/Dashboard" class="btn">
+        Back To Dashboard
+    </a>
+
+</div>
