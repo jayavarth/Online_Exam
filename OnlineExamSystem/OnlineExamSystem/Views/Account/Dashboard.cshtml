@@ -1,17 +1,157 @@
-﻿
+﻿@{
+    Layout = null;
+}
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
 
-<h2>
-    Welcome @Session["UserName"]
-</h2>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-<a href="/Exam/SelectExam">
-    Start Exam
-</a>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f6fa;
+        }
 
-<br />
-<br />
+        .container {
+            display: flex;
+        }
 
-<a href="/Exam/MyResults">
-    My Results
-</a>
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: linear-gradient(180deg, #5b2be0, #7e4cff);
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 40px;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+            opacity: 0.85;
+        }
+
+        .menu a:hover {
+            opacity: 1;
+        }
+
+        /* Main */
+        .main {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .welcome {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            background-color: #5b2be0;
+        }
+
+        .btn:hover {
+            background-color: #4620c9;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Exam Portal</h2>
+
+            <div class="menu">
+                <a href="#">Dashboard</a>
+                <a href="/Exam/SelectExam">Start Exam</a>
+                <a href="/Exam/MyResults">My Results</a>
+                <a href="#">Settings</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+
+            <div class="header">
+                <div class="welcome">
+                    Welcome, @Session["UserName"]
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Start Exam</h3>
+                    <p>Begin a new exam and test your knowledge.</p>
+                    <a href="/Exam/SelectExam" class="btn">Start</a>
+                </div>
+
+                <div class="card">
+                    <h3>My Results</h3>
+                    <p>View your past performance and scores.</p>
+                    <a href="/Exam/MyResults" class="btn">View Results</a>
+                </div>
+
+                <div class="card">
+                    <h3>Progress</h3>
+                    <p>Track your exam progress and improvements.</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

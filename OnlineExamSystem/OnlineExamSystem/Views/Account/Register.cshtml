@@ -1,85 +1,206 @@
-﻿
-
-
-@model OnlineExamSystem.Models.User
+﻿@model OnlineExamSystem.Models.User
 
 @{
-    ViewBag.Title = "Register";
+    Layout = null;
 }
 
-<h2>User Registration</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
 
-@using (Html.BeginForm())
-{
-    <div>
-        <label>Full Name</label>
-        @Html.TextBoxFor(m => m.FullName)
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* LEFT (Illustration) */
+        .left {
+            flex: 1;
+            background: linear-gradient(135deg, #5b2be0, #7e4cff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 40px;
+        }
+
+        .left img {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .left h1 {
+            margin-top: 20px;
+        }
+
+        /* RIGHT (Form) */
+        .right {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background: #f5f6fa;
+            padding: 40px 0;
+        }
+
+        .form-card {
+            background: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .form-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #5b2be0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #5b2be0;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #4520c5;
+        }
+
+        .error {
+            text-align: center;
+            margin-top: 15px;
+            color: red;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Illustration -->
+        <div class="left">
+            <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
+                <h1>Create Account</h1>
+                <p>Join and start your exam journey</p>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="right">
+            <div class="form-card">
+
+                <h2>Register</h2>
+
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        @Html.TextBoxFor(m => m.FullName)
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        @Html.TextBoxFor(m => m.Email)
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        @Html.PasswordFor(m => m.Password)
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        @Html.TextBoxFor(m => m.Mobile)
+                    </div>
+
+                    <div class="form-group">
+                        <label>City</label>
+                        @Html.TextBoxFor(m => m.City)
+                    </div>
+
+                    <div class="form-group">
+                        <label>State</label>
+                        @Html.TextBoxFor(m => m.State)
+                    </div>
+
+                    <div class="form-group">
+                        <label>DOB</label>
+                        @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { type = "date" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Qualification</label>
+                        @Html.TextBoxFor(m => m.Qualification)
+                    </div>
+
+                    <div class="form-group">
+                        <label>Year Of Completion</label>
+                        @Html.TextBoxFor(m => m.YearOfCompletion)
+                    </div>
+
+                    <button type="submit" class="btn">Register</button>
+                }
+
+                <div class="error">
+                    @ViewBag.Message
+                </div>
+
+                <div class="footer">
+                    Already have an account? <a href="/Admin/Login">Login</a>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
-    <br />
-
-    <div>
-        <label>Email</label>
-        @Html.TextBoxFor(m => m.Email)
-    </div>
-
-    <br />
-
-    <div>
-        <label>Password</label>
-        @Html.PasswordFor(m => m.Password)
-    </div>
-
-    <br />
-
-    <div>
-        <label>Mobile</label>
-        @Html.TextBoxFor(m => m.Mobile)
-    </div>
-
-    <br />
-
-    <div>
-        <label>City</label>
-        @Html.TextBoxFor(m => m.City)
-    </div>
-
-    <br />
-
-    <div>
-        <label>State</label>
-        @Html.TextBoxFor(m => m.State)
-    </div>
-
-    <br />
-
-    <div>
-        <label>DOB</label>
-        @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}",
-             new { type = "date" })
-    </div>
-
-    <br />
-
-    <div>
-        <label>Qualification</label>
-        @Html.TextBoxFor(m => m.Qualification)
-    </div>
-
-    <br />
-
-    <div>
-        <label>Year Of Completion</label>
-        @Html.TextBoxFor(m => m.YearOfCompletion)
-    </div>
-
-    <br />
-
-    <button type="submit">
-        Register
-    </button>
-}
-
-<h3 style="color:red">
-    @ViewBag.Message
-</h3>
+</body>
+</html>

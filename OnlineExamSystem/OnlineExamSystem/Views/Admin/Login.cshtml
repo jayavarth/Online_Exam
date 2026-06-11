@@ -1,26 +1,164 @@
-﻿
-
-<h2>Admin Login</h2>
-
-@using (Html.BeginForm())
-{
-    <label>Email</label>
-    <input type="text" name="email" />
-
-    <br />
-    <br />
-
-    <label>Password</label>
-    <input type="password" name="password" />
-
-    <br />
-    <br />
-
-    <button type="submit">
-        Login
-    </button>
+﻿@{
+    Layout = null;
 }
 
-<h3 style="color:red">
-    @ViewBag.Message
-</h3>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* LEFT SIDE */
+        .left {
+            flex: 1;
+            background: linear-gradient(135deg, #2d2d2d, #000000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 40px;
+        }
+
+        .left img {
+            width: 80%;
+            max-width: 350px;
+        }
+
+        .left h1 {
+            margin-top: 20px;
+        }
+
+        /* RIGHT SIDE */
+        .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f6fa;
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            width: 350px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .login-card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #000;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        .error {
+            text-align: center;
+            margin-top: 15px;
+            color: red;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Illustration -->
+        <div class="left">
+            <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png" />
+                <h1>Admin Panel</h1>
+                <p>Manage exams, users and results</p>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="right">
+            <div class="login-card">
+
+                <h2>Admin Login</h2>
+
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" placeholder="Enter admin email" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter password" required />
+                    </div>
+
+                    <button type="submit" class="btn">Login</button>
+                }
+
+                <div class="error">
+                    @ViewBag.Message
+                </div>
+
+                <div class="footer">
+                    /Account/LoginBack to User Login</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
