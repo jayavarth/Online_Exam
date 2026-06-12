@@ -1,7 +1,7 @@
 @{
     Layout = null;
 }
-
+@Html.ValidationSummary(true, "", new { @class = "error" })
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,9 +107,12 @@
 
                 <a href="/Account/ForgotPassword">Forgot Password?</a>
 
-                <div class="error">
-                    @ViewBag.Message
-                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <div class="error">
+                        @ViewBag.Message
+                    </div>
+                }
 
             </div>
         </div>

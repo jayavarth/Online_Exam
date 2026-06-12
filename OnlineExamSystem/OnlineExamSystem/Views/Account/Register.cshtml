@@ -8,7 +8,15 @@
 <html>
 <head>
     <title>Register</title>
+    @*<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+    <script src="@Url.Content("~/Scripts/jquery-3.7.0.min.js")"></script>
 
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+  
     <style>
         body {
             margin: 0;
@@ -116,6 +124,83 @@
 
 <body>
 
+    <script>
+        $(document).ready(function () {
+
+            $("#CountryId").change(function () {
+
+                var countryId = $(this).val();
+
+                $("#StateId").empty();
+                $("#CityId").empty();
+
+                $.getJSON('/Account/GetStates',
+                    {
+                        countryId: countryId
+                    },
+                    function (data) {
+
+                        $("#StateId").append(
+                            '<option value="">Select State</option>'
+                        );
+
+                        $.each(data, function (i, item) {
+
+                            $("#StateId").append(
+                                '<option value="' +
+                                item.StateId +
+                                '">' +
+                                item.StateName +
+                                '</option>'
+                            );
+
+                        });
+
+                    });
+
+            });
+
+            $("#StateId").change(function () {
+
+                var stateId = $(this).val();
+
+                $("#CityId").empty();
+
+                $.getJSON('/Account/GetCities',
+                    {
+                        stateId: stateId
+                    },
+                    function (data) {
+
+                        $("#CityId").append(
+                            '<option value="">Select City</option>'
+                        );
+
+                        $.each(data, function (i, item) {
+
+                            $("#CityId").append(
+                                '<option value="' +
+                                item.CityId +
+                                '">' +
+                                item.CityName +
+                                '</option>'
+                            );
+
+                        });
+
+                    });
+
+            });
+
+            //$("#CountryId").change(function () {
+
+            //    var countryId = $(this).val();
+
+            //    alert("Selected CountryId = " + countryId);
+
+            //});
+    });
+    </script>
     <div class="container">
 
         <!-- LEFT -->
@@ -170,15 +255,40 @@
                     </div>
 
                     <div class="form-group">
-                        <label>City</label>
-                        @Html.TextBoxFor(m => m.City)
-                        @Html.ValidationMessageFor(m => m.City, "", new { @class = "error" })
+                        <label>Country</label>
+
+
+                        @Html.DropDownListFor(
+                        m => m.CountryId,
+                        (ViewBag.Countries as SelectList),
+                        "--Select Country--",
+                        new { id = "CountryId" })
+                        @*@Html.ValidationMessageFor(m => m.Country, "", new { @class = "error" })*@
                     </div>
 
                     <div class="form-group">
                         <label>State</label>
-                        @Html.TextBoxFor(m => m.State)
-                        @Html.ValidationMessageFor(m => m.State, "", new { @class = "error" })
+
+
+                        <select id="StateId"
+                                name="StateId">
+                            <option>
+                                Select State
+                            </option>
+                        </select>
+                        @*@Html.TextBoxFor(m => m.State)*@
+                        @*@Html.ValidationMessageFor(m => m.State, "", new { @class = "error" })*@
+                    </div>
+                    <div class="form-group">
+
+                        <label>City</label>
+
+                        <select id="CityId"
+                                name="CityId">
+                            <option>
+                                Select City
+                            </option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -189,8 +299,12 @@
 
                     <div class="form-group">
                         <label>Qualification</label>
-                        @Html.TextBoxFor(m => m.Qualification)
-                        @Html.ValidationMessageFor(m => m.Qualification, "", new { @class = "error" })
+
+
+                        @Html.DropDownListFor(
+                        m => m.QualificationId,
+                        (ViewBag.Qualifications as SelectList),
+                        "--Select Qualification--")
                     </div>
 
                     <div class="form-group">
@@ -219,7 +333,7 @@
     </div>
 
     @section Scripts
-{
+        {
         @Scripts.Render("~/bundles/jqueryval")
     }
 

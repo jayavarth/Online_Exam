@@ -13,7 +13,20 @@ namespace OnlineExamSystem.Controllers
 
         public ActionResult Register()
         {
+            ViewBag.Countries =
+        new SelectList(
+            db.Countries.ToList(),
+            "CountryId",
+            "CountryName");
+
+            ViewBag.Qualifications =
+                new SelectList(
+                    db.Qualifications.ToList(),
+                    "QualificationId",
+                    "QualificationName");
+
             return View();
+            //return View();
         }
 
         //[HttpPost]
@@ -192,6 +205,28 @@ namespace OnlineExamSystem.Controllers
             }
 
             return View();
+        }
+        public JsonResult GetStates(int countryId)
+        {
+            var states =
+                db.States
+                .Where(x => x.CountryId == countryId)
+                .ToList();
+
+            return Json(
+                states,
+                JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetCities(int stateId)
+        {
+            var cities =
+                db.Cities
+                .Where(x => x.StateId == stateId)
+                .ToList();
+
+            return Json(
+                cities,
+                JsonRequestBehavior.AllowGet);
         }
     }
 }

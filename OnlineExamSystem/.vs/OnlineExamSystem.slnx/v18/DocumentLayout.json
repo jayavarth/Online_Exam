@@ -1,0 +1,266 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|c:\\users\\vilvapriyam\\source\\repos\\online_exam\\onlineexamsystem\\onlineexamsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\dal\\examdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\dal\\examdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\models\\qualification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\models\\qualification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\models\\state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\models\\state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\account\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\account\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{f4e46f1e-cf83-40aa-b568-a627394bc994}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Web.config",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Web.config",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Web.config",
+              "RelativeToolTip": "OnlineExamSystem\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-06-12T10:23:17.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Qualification.cs",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\Qualification.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Models\\Qualification.cs",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\Qualification.cs",
+              "RelativeToolTip": "OnlineExamSystem\\Models\\Qualification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T10:09:39.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-12T07:43:24.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "OnlineExamSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAANYAAAAAAAAAAAAAAN8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T07:44:52.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExamDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\DAL\\ExamDbContext.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\DAL\\ExamDbContext.cs",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\DAL\\ExamDbContext.cs",
+              "RelativeToolTip": "OnlineExamSystem\\DAL\\ExamDbContext.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAkwB8AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T10:10:28.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\User.cs",
+              "RelativeToolTip": "OnlineExamSystem\\Models\\User.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAA/wEAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T10:10:57.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "City.cs",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\City.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Models\\City.cs",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\City.cs",
+              "RelativeToolTip": "OnlineExamSystem\\Models\\City.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T10:09:12.004Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "State.cs",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\State.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Models\\State.cs",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\State.cs",
+              "RelativeToolTip": "OnlineExamSystem\\Models\\State.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T10:08:49.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Country.cs",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\Country.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Models\\Country.cs",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Models\\Country.cs",
+              "RelativeToolTip": "OnlineExamSystem\\Models\\Country.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T10:08:09.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-12T07:48:46.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Account\\ForgotPassword.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-12T07:48:29.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Account\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Account\\Dashboard.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Account\\Dashboard.cshtml",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-12T07:43:25.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2026-06-12T07:43:25.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\vilvapriyam\\source\\repos\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2026-06-12T07:43:25.687Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

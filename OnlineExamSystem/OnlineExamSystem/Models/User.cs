@@ -40,24 +40,30 @@ namespace OnlineExamSystem.Models
             ErrorMessage = "Enter valid 10 digit mobile number")]
         public string Mobile { get; set; }
 
-        //[Required]
-        //public string City { get; set; }
-        [Required(ErrorMessage = "City is required")]
-        [RegularExpression(@"^[a-zA-Z ]+$",
-    ErrorMessage = "City should contain only letters")]
-        public string City { get; set; }
+    //    //[Required]
+    //    //public string City { get; set; }
+    //    [Required(ErrorMessage = "City is required")]
+    //    [RegularExpression(@"^[a-zA-Z ]+$",
+    //ErrorMessage = "City should contain only letters")]
+    //    public string City { get; set; }
 
-        [Required(ErrorMessage = "State is required")]
-        [RegularExpression(@"^[a-zA-Z ]+$",
-    ErrorMessage = "State should contain only letters")]
-        public string State { get; set; }
+    //    [Required(ErrorMessage = "State is required")]
+    //    [RegularExpression(@"^[a-zA-Z ]+$",
+    //ErrorMessage = "State should contain only letters")]
+    //    public string State { get; set; }
 
         [Required]
         public DateTime DOB { get; set; }
 
+        //[Required]
+        [Required]//public string Qualification { get; set; }
+        public int CountryId { get; set; }
         [Required]
-        public string Qualification { get; set; }
-
+        public int StateId { get; set; }
+        [Required]
+        public int CityId { get; set; }
+        [Required]
+        public int QualificationId { get; set; }
         [Required]
         [Range(2000, 2100)]
         public int YearOfCompletion { get; set; }
