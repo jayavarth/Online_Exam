@@ -1,63 +1,190 @@
-﻿
-
-
-@{
-    ViewBag.Title = "AddQuestion";
+﻿@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-@model OnlineExamSystem.Models.Question
+<h2>Add Questions</h2>
+<style>
+    .main {
+        flex: 1;
+        padding: 40px 60px;
+    }
 
-<h2>Add Question</h2>
+    h2 {
+        color: #556B2F;
+        margin-bottom: 20px;
+    }
 
-@using (Html.BeginForm())
-{
-    <label>Exam Id</label>
-    @Html.TextBoxFor(x => x.ExamId)
+    .question-wrapper {
+        max-width: 800px;
+    }
 
-    <br />
-    <br />
+    .question-card {
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        position: relative;
+    }
 
-    <label>Question</label>
-    @Html.TextBoxFor(x => x.QuestionText)
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
 
-    <br />
-    <br />
+        input[type="text"]::placeholder {
+            color: #aaa;
+        }
 
-    <label>Option A</label>
-    @Html.TextBoxFor(x => x.OptionA)
+    .option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
 
-    <br />
-    <br />
+        .option input[type="text"] {
+            margin-bottom: 0;
+        }
 
-    <label>Option B</label>
-    @Html.TextBoxFor(x => x.OptionB)
+        .option input[type="radio"] {
+            margin-right: 12px;
+        }
 
-    <br />
-    <br />
+    .delete-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
 
-    <label>Option C</label>
-    @Html.TextBoxFor(x => x.OptionC)
+    .btn {
+        padding: 12px 20px;
+        background: #556B2F;
+        color: white;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+    }
 
-    <br />
-    <br />
+        .btn:hover {
+            background: #3e4f22;
+        }
 
-    <label>Option D</label>
-    @Html.TextBoxFor(x => x.OptionD)
+    .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+</style>
 
-    <br />
-    <br />
+<div class="question-wrapper">
 
-    <label>Correct Answer</label>
-    @Html.TextBoxFor(x => x.CorrectAnswer)
+    <div id="questions-container">
 
-    <br />
-    <br />
+        <div class="question-card">
 
-    <button type="submit">
-        Save
-    </button>
-}
+            <button type="button" class="delete-btn">❌</button>
 
-<h3 style="color:green">
-    @ViewBag.Message
-</h3>
+            <input type="text" class="question" placeholder="Enter your question" />
+
+            <div class="option">
+                <input type="radio" name="q1" value="A">
+                <input type="text" placeholder="Option A" class="optA">
+            </div>
+
+            <div class="option">
+                <input type="radio" name="q1" value="B">
+                <input type="text" placeholder="Option B" class="optB">
+            </div>
+
+            <div class="option">
+                <input type="radio" name="q1" value="C">
+                <input type="text" placeholder="Option C" class="optC">
+            </div>
+
+            <div class="option">
+                <input type="radio" name="q1" value="D">
+                <input type="text" placeholder="Option D" class="optD">
+            </div>
+
+        </div>
+
+    </div>
+
+    <button id="addQuestion" class="btn add-btn">+ Add Another Question</button>
+
+    <button id="submitBtn" class="btn">Submit Questions</button>
+
+</div>
+
+<script>
+    let questionCount = 1;
+
+    $("#addQuestion").click(function () {
+        questionCount++;
+
+        let html = `
+    <div class="question-card">
+        <button type="button" class="delete-btn">❌</button>
+
+        <input type="text" class="question" placeholder="Enter your question" />
+
+        <div class="option">
+            <input type="radio" name="q${questionCount}" value="A">
+            <input type="text" placeholder="Option A" class="optA">
+        </div>
+
+        <div class="option">
+            <input type="radio" name="q${questionCount}" value="B">
+            <input type="text" placeholder="Option B" class="optB">
+        </div>
+
+        <div class="option">
+            <input type="radio" name="q${questionCount}" value="C">
+            <input type="text" placeholder="Option C" class="optC">
+        </div>
+
+        <div class="option">
+            <input type="radio" name="q${questionCount}" value="D">
+            <input type="text" placeholder="Option D" class="optD">
+        </div>
+    </div>`;
+
+        $("#questions-container").append(html);
+    });
+
+    $(document).on("click", ".delete-btn", function () {
+        $(this).closest(".question-card").remove();
+    });
+
+    $("#submitBtn").click(function () {
+
+        let allQuestions = [];
+
+        $(".question-card").each(function () {
+
+            let q = $(this);
+
+            allQuestions.push({
+                QuestionText: q.find(".question").val(),
+                OptionA: q.find(".optA").val(),
+                OptionB: q.find(".optB").val(),
+                OptionC: q.find(".optC").val(),
+                OptionD: q.find(".optD").val(),
+                CorrectAnswer: q.find("input[type=radio]:checked").val()
+            });
+        });
+
+        console.log(allQuestions);
+    });
+</script>

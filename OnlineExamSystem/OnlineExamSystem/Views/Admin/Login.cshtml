@@ -7,6 +7,8 @@
 <head>
     <title>Admin Login</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -20,29 +22,32 @@
             width: 100%;
         }
 
-        /* LEFT SIDE */
         .left {
             flex: 1;
-            background: linear-gradient(135deg, #2d2d2d, #000000);
+            background: linear-gradient(135deg, #556B2F, #6B8E23);
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             padding: 40px;
+            text-align: center;
         }
 
             .left img {
-                width: 80%;
-                max-width: 350px;
+                width: 70%;
+                max-width: 300px;
             }
 
-        /* RIGHT SIDE */
+            .left h1 {
+                margin-top: 20px;
+            }
+
         .right {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f5f6fa;
+            background: #f5f7f2;
         }
 
         .login-card {
@@ -51,6 +56,12 @@
             width: 350px;
             border-radius: 14px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #556B2F;
         }
 
         label {
@@ -62,35 +73,60 @@
             width: 100%;
             padding: 10px;
             margin-top: 6px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border-radius: 8px;
             border: 1px solid #ddd;
         }
 
+            input:focus {
+                outline: none;
+                border-color: #556B2F;
+            }
+
         .btn {
             width: 100%;
             padding: 12px;
-            background: #000;
+            background: #556B2F;
             border: none;
             color: white;
             border-radius: 8px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
             .btn:hover {
-                background: #333;
+                e4f22;
             }
+
+        .captcha {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #2f3e1f;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+            .footer a {
+                color: #556B2F;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+                .footer a:hover {
+                    color: #3e4f22;
+                    text-decoration: underline;
+                }
 
         .error {
             text-align: center;
             margin-top: 10px;
             color: red;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 13px;
         }
     </style>
 </head>
@@ -99,7 +135,6 @@
 
     <div class="container">
 
-        <!-- LEFT -->
         <div class="left">
             <div>
                 <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png" />
@@ -108,7 +143,6 @@
             </div>
         </div>
 
-        <!-- RIGHT -->
         <div class="right">
             <div class="login-card">
 
@@ -122,22 +156,29 @@
                     <label>Password</label>
                     <input type="password" name="password" placeholder="Enter password" required />
 
-                    <!-- ✅ Captcha added -->
-                    <h4>Captcha : @ViewBag.Captcha</h4>
+                    <div class="captcha">Captcha : @ViewBag.Captcha</div>
                     <input type="text" name="captchaInput" placeholder="Enter Captcha" required />
 
                     <button type="submit" class="btn">Login</button>
                 }
 
                 <div class="footer">
-                    <a href="/Admin/ForgotPassword">Forgot Password?</a>
+                    @Html.ActionLink("Forgot Password?", "ForgotPassword", "Admin")
                     <br />
-                    <a href="/Account/Login">Back to User Login</a>
+                    @Html.ActionLink("Back to User Login", "Login", "Account")
                 </div>
 
-                <div class="error">
-                    @ViewBag.Message
-                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <div class="error">
+                        @ViewBag.Message
+                    </div>
+                }
 
             </div>
-            </divtml>
+        </div>
+
+    </div>
+
+</body>
+</html>
