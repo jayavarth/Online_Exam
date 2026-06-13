@@ -1,11 +1,15 @@
 @{
     Layout = null;
 }
+
 @Html.ValidationSummary(true, "", new { @class = "error" })
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -22,50 +26,108 @@
 
         .left {
             flex: 1;
-            background: linear-gradient(135deg, #5b2be0, #7e4cff);
+            background: linear-gradient(135deg, #556B2F, #6B8E23);
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
+            text-align: center;
+            padding: 40px;
         }
+
+            .left img {
+                width: 70%;
+                max-width: 280px;
+            }
+
+            .left h1 {
+                margin-top: 20px;
+            }
+
+            .left p {
+                opacity: 0.9;
+            }
 
         .right {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f5f6fa;
+            background: #f5f7f2;
         }
 
         .login-card {
             background: white;
             padding: 40px;
-            width: 350px;
-            border-radius: 14px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 360px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+            .login-card h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #556B2F;
+            }
+
+        label {
+            font-size: 13px;
+            font-weight: 500;
         }
 
         input {
             width: 100%;
             padding: 10px;
             margin-top: 6px;
+            margin-bottom: 15px;
             border-radius: 8px;
             border: 1px solid #ddd;
         }
 
+            input:focus {
+                outline: none;
+                border-color: #556B2F;
+            }
+
         .btn {
             width: 100%;
-            margin-top: 10px;
             padding: 12px;
-            background: #5b2be0;
+            background: #556B2F;
             border: none;
             color: white;
             border-radius: 8px;
+            transition: 0.3s;
+            f22;
         }
+
+        .captcha {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #2f3e1f;
+            font-weight: 500;
+        }
+
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+            .footer a {
+                color: #556B2F;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
 
         .error {
             text-align: center;
             color: red;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -74,16 +136,14 @@
 
     <div class="container">
 
-        <!-- LEFT -->
         <div class="left">
             <div>
-                <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" width="300" />
+                <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" />
                 <h1>Online Exam Portal</h1>
-                <p>Practice and improve your skills</p>
+                <p>Practice, learn and grow your skills</p>
             </div>
         </div>
 
-        <!-- RIGHT -->
         <div class="right">
             <div class="login-card">
 
@@ -97,15 +157,20 @@
                     <label>Password</label>
                     <input type="password" name="password" required />
 
-                    <h4>Captcha : @ViewBag.Captcha</h4>
+                    <div class="captcha">Captcha : @ViewBag.Captcha</div>
                     <input type="text" name="captchaInput" placeholder="Enter Captcha" required />
 
                     <button type="submit" class="btn">Login</button>
                 }
 
-                <br />
-
+            <div class="footer">
                 <a href="/Account/ForgotPassword">Forgot Password?</a>
+
+                <br />
+                New user?
+                <a href="/Account/Register">Register</a>
+
+            </div>
 
                 @if (ViewBag.Message != null)
                 {

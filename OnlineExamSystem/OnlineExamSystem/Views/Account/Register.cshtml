@@ -8,15 +8,13 @@
 <html>
 <head>
     <title>Register</title>
-    @*<script src="~/Scripts/jquery-3.7.1.min.js"></script>
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+
     <script src="@Url.Content("~/Scripts/jquery-3.7.0.min.js")"></script>
-
     <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
-
     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
-  
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -30,45 +28,44 @@
             width: 100%;
         }
 
-        /* LEFT (Illustration) */
         .left {
             flex: 1;
-            background: linear-gradient(135deg, #5b2be0, #7e4cff);
+            background: linear-gradient(135deg, #556B2F, #6B8E23);
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
+            text-align: center;
             padding: 40px;
         }
 
             .left img {
-                width: 80%;
-                max-width: 400px;
+                width: 70%;
+                max-width: 300px;
             }
-
-        /* RIGHT (Form) */
         .right {
             flex: 1;
-            overflow-y: auto;
+            background: #f5f7f2;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            background: #f5f6fa;
             padding: 40px 0;
+            overflow-y: auto;
         }
 
         .form-card {
             background: white;
-            width: 400px;
+            width: 420px;
             padding: 30px;
-            border-radius: 14px;
+            border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-            .form-card h2 {
-                text-align: center;
-                margin-bottom: 20px;
-            }
+        h2 {
+            text-align: center;
+            color: #556B2F;
+            margin-bottom: 20px;
+        }
 
         .form-group {
             margin-bottom: 12px;
@@ -79,34 +76,32 @@
             font-weight: 500;
         }
 
-        input {
+        input, select {
             width: 100%;
-            padding: 9px;
+            padding: 10px;
             margin-top: 5px;
             border-radius: 8px;
             border: 1px solid #ddd;
-            font-size: 13px;
         }
 
-            input:focus {
+            input:focus, select:focus {
                 outline: none;
-                border-color: #5b2be0;
+                border-color: #556B2F;
             }
 
         .btn {
             width: 100%;
             padding: 12px;
-            margin-top: 10px;
-            background: #5b2be0;
+            background: #556B2F;
             border: none;
             color: white;
             border-radius: 8px;
-            font-size: 15px;
-            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
         }
 
             .btn:hover {
-                background: #4520c5;
+                background: #3e4f22;
             }
 
         .error {
@@ -119,11 +114,20 @@
             margin-top: 15px;
             font-size: 13px;
         }
+
+            .footer a {
+                color: #556B2F;
+                font-weight: 500;
+                text-decoration: none;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
     </style>
 </head>
 
 <body>
-
     <script>
         $(document).ready(function () {
 
@@ -134,91 +138,53 @@
                 $("#StateId").empty();
                 $("#CityId").empty();
 
-                $.getJSON('/Account/GetStates',
-                    {
-                        countryId: countryId
-                    },
-                    function (data) {
+                $.getJSON('/Account/GetStates', { countryId: countryId }, function (data) {
 
+                    $("#StateId").append('<option value="">Select State</option>');
+
+                    $.each(data, function (i, item) {
                         $("#StateId").append(
-                            '<option value="">Select State</option>'
+                            '<option value="' + item.StateId + '">' + item.StateName + '</option>'
                         );
-
-                        $.each(data, function (i, item) {
-
-                            $("#StateId").append(
-                                '<option value="' +
-                                item.StateId +
-                                '">' +
-                                item.StateName +
-                                '</option>'
-                            );
-
-                        });
-
                     });
-
+                });
             });
 
             $("#StateId").change(function () {
 
                 var stateId = $(this).val();
-
                 $("#CityId").empty();
 
-                $.getJSON('/Account/GetCities',
-                    {
-                        stateId: stateId
-                    },
-                    function (data) {
+                $.getJSON('/Account/GetCities', { stateId: stateId }, function (data) {
 
+                    $("#CityId").append('<option value="">Select City</option>');
+
+                    $.each(data, function (i, item) {
                         $("#CityId").append(
-                            '<option value="">Select City</option>'
+                            '<option value="' + item.CityId + '">' + item.CityName + '</option>'
                         );
-
-                        $.each(data, function (i, item) {
-
-                            $("#CityId").append(
-                                '<option value="' +
-                                item.CityId +
-                                '">' +
-                                item.CityName +
-                                '</option>'
-                            );
-
-                        });
-
                     });
-
+                });
             });
 
-            //$("#CountryId").change(function () {
-
-            //    var countryId = $(this).val();
-
-            //    alert("Selected CountryId = " + countryId);
-
-            //});
-    });
+        });
     </script>
+
     <div class="container">
 
-        <!-- LEFT -->
         <div class="left">
             <div>
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
                 <h1>Create Account</h1>
-                <p>Join and start your exam journey</p>
+                <p>Start your journey with us</p>
             </div>
         </div>
 
-        <!-- RIGHT -->
         <div class="right">
             <div class="form-card">
 
                 <h2>Register</h2>
 
-                <!-- ✅ Validation Summary -->
                 @Html.ValidationSummary(true, "", new { @class = "error" })
 
                 @using (Html.BeginForm())
@@ -241,7 +207,6 @@
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
                     </div>
 
-                    <!-- ✅ Added Confirm Password -->
                     <div class="form-group">
                         <label>Confirm Password</label>
                         @Html.PasswordFor(m => m.ConfirmPassword)
@@ -256,38 +221,23 @@
 
                     <div class="form-group">
                         <label>Country</label>
-
-
-                        @Html.DropDownListFor(
-                        m => m.CountryId,
-                        (ViewBag.Countries as SelectList),
-                        "--Select Country--",
-                        new { id = "CountryId" })
-                        @*@Html.ValidationMessageFor(m => m.Country, "", new { @class = "error" })*@
+                        @Html.DropDownListFor(m => m.CountryId,
+                            (ViewBag.Countries as SelectList),
+                            "--Select Country--",
+                            new { id = "CountryId" })
                     </div>
 
                     <div class="form-group">
                         <label>State</label>
-
-
-                        <select id="StateId"
-                                name="StateId">
-                            <option>
-                                Select State
-                            </option>
+                        <select id="StateId" name="StateId">
+                            <option>Select State</option>
                         </select>
-                        @*@Html.TextBoxFor(m => m.State)*@
-                        @*@Html.ValidationMessageFor(m => m.State, "", new { @class = "error" })*@
                     </div>
+
                     <div class="form-group">
-
                         <label>City</label>
-
-                        <select id="CityId"
-                                name="CityId">
-                            <option>
-                                Select City
-                            </option>
+                        <select id="CityId" name="CityId">
+                            <option>Select City</option>
                         </select>
                     </div>
 
@@ -299,12 +249,9 @@
 
                     <div class="form-group">
                         <label>Qualification</label>
-
-
-                        @Html.DropDownListFor(
-                        m => m.QualificationId,
-                        (ViewBag.Qualifications as SelectList),
-                        "--Select Qualification--")
+                        @Html.DropDownListFor(m => m.QualificationId,
+                            (ViewBag.Qualifications as SelectList),
+                            "--Select Qualification--")
                     </div>
 
                     <div class="form-group">
@@ -316,26 +263,19 @@
                     <button type="submit" class="btn">Register</button>
                 }
 
-                <!-- ✅ Server message -->
                 <div class="error">
                     @ViewBag.Message
                 </div>
 
-                <!-- ✅ FIXED LINK -->
                 <div class="footer">
                     Already have an account?
-                    <a href="/Account/Login">Login</a>
+                    @Html.ActionLink("Login", "Login", "Account")
                 </div>
 
             </div>
         </div>
 
     </div>
-
-    @section Scripts
-        {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
 
 </body>
 </html>

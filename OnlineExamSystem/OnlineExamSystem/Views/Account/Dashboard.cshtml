@@ -7,47 +7,48 @@
 <head>
     <title>Dashboard</title>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #f5f6fa;
+            background: #f5f7f2;
         }
 
         .container {
             display: flex;
         }
 
-        /* Sidebar */
+
         .sidebar {
             width: 240px;
             height: 100vh;
-            background: linear-gradient(180deg, #5b2be0, #7e4cff);
+            background: linear-gradient(180deg, #556B2F, #6B8E23);
             color: white;
-            padding: 20px;
+            padding: 25px;
         }
 
-        .sidebar h2 {
-            font-size: 22px;
-            margin-bottom: 40px;
-        }
+            .sidebar h2 {
+                margin-bottom: 35px;
+                font-weight: 600;
+            }
 
         .menu a {
             display: block;
-            color: white;
+            color: #e8f0dc;
             text-decoration: none;
-            margin: 15px 0;
-            opacity: 0.85;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: 0.3s;
         }
 
-        .menu a:hover {
-            opacity: 1;
-        }
+            .menu a:hover {
+                background: rgba(255,255,255,0.15);
+                padding-left: 15px;
+            }
 
-        /* Main */
         .main {
             flex: 1;
             padding: 30px;
@@ -62,9 +63,9 @@
         .welcome {
             font-size: 24px;
             font-weight: 600;
+            color: #2f3e1f;
         }
 
-        /* Cards */
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -76,82 +77,84 @@
             background: white;
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
         }
 
-        .card h3 {
-            margin-top: 0;
-        }
+            .card:hover {
+                transform: translateY(-5px);
+            }
 
-        /* Buttons */
+            .card h3 {
+                color: #556B2F;
+            }
+
+            .card p {
+                color: #666;
+            }
+
         .btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 16px;
-            border-radius: 8px;
-            text-decoration: none;
+            margin-top: 10px;
             color: white;
-            background-color: #5b2be0;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: 0.3s;
         }
 
-        .btn:hover {
-            background-color: #4620c9;
-        }
-
+            .btn:hover {
+                background: #3e4f22;
+            }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+        <div class="container">
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h2>Exam Portal</h2>
+            <div class="sidebar">
+                <h2>Exam Portal</h2>
 
-            <div class="menu">
-                <a href="#">Dashboard</a>
-                <a href="/Exam/SelectExam">Start Exam</a>
-                <a href="/Exam/MyResults">My Results</a>
-                <a href="#">Settings</a>
+                <div class="menu">
+                    <a href="#">Dashboard</a>
+
+                    <a href="/Exam/SelectExam">Start Exam</a>
+
+                    <a href="/Exam/MyResults">My Results</a>
+
+            </div>
+            </div>
+
+            <div class="main">
+
+                <div class="header">
+                    <div class="welcome">
+                        Welcome, @Session["UserName"]
+                    </div>
+                </div>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <h3>Start Exam</h3>
+                        <p>Begin a new exam and test your knowledge.</p>
+                        <a href="/Exam/SelectExam" class="btn">Start</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>My Results</h3>
+                        <p>View your past performance and scores.</p>
+                        <a href="/Exam/MyResults" class="btn">View Results</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>Progress</h3>
+                        <p>Track your exam improvement.</p>
+                        <a href="#" class="btn">View</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main">
-
-            <div class="header">
-                <div class="welcome">
-                    Welcome, @Session["UserName"]
-                </div>
-            </div>
-
-            <!-- Cards -->
-            <div class="cards">
-
-                <div class="card">
-                    <h3>Start Exam</h3>
-                    <p>Begin a new exam and test your knowledge.</p>
-                    <a href="/Exam/SelectExam" class="btn">Start</a>
-                </div>
-
-                <div class="card">
-                    <h3>My Results</h3>
-                    <p>View your past performance and scores.</p>
-                    <a href="/Exam/MyResults" class="btn">View Results</a>
-                </div>
-
-                <div class="card">
-                    <h3>Progress</h3>
-                    <p>Track your exam progress and improvements.</p>
-                    <a href="#" class="btn">View</a>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</body>
+    </body>
 </html>
