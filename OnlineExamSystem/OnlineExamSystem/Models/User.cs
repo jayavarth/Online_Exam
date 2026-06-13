@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 
 
 namespace OnlineExamSystem.Models
@@ -31,8 +32,10 @@ namespace OnlineExamSystem.Models
         public string Password { get; set; }
 
         [Required]
+       
         [Compare("Password",
             ErrorMessage = "Passwords do not match")]
+        [NotMapped]
         public string ConfirmPassword { get; set; }
 
         [Required]
