@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using OnlineExamSystem.DAL;
 using OnlineExamSystem.Models;
+using OfficeOpenXml;
+using System.IO;
 
 namespace OnlineExamSystem.Controllers
 {
@@ -176,6 +178,66 @@ namespace OnlineExamSystem.Controllers
             else
             {
                 ViewBag.Message = "Admin Not Found";
+            }
+
+            return View();
+        }
+        public ActionResult UploadQuestions()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UploadQuestions(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                ExcelPackage.License.SetNonCommercialPersonal("Vilvapriya");
+                using (var package =
+                    new ExcelPackage(file.InputStream))
+                {
+                    ExcelWorksheet sheet =
+                        package.Workbook.Worksheets[0];
+
+                    int rows =
+                        sheet.Dimension.Rows;
+
+                    for (int row = 2;
+                         row <= rows;
+                         row++)
+                    {
+                        Question q =
+                            new Question();
+
+                        q.ExamId =
+                            Convert.ToInt32(
+                                sheet.Cells[row, 1].Value);
+
+                        q.QuestionText =
+                            sheet.Cells[row, 2].Value?.ToString();
+
+                        q.OptionA =
+                            sheet.Cells[row, 3].Value?.ToString();
+
+                        q.OptionB =
+                            sheet.Cells[row, 4].Value?.ToString();
+
+                        q.OptionC =
+                            sheet.Cells[row, 5].Value?.ToString();
+
+                        q.OptionD =
+                            sheet.Cells[row, 6].Value?.ToString();
+
+                        q.CorrectAnswer =
+                            sheet.Cells[row, 7].Value?.ToString();
+
+                        db.Questions.Add(q);
+                    }
+
+                    db.SaveChanges();
+                }
+
+                ViewBag.Message =
+                    "Questions Uploaded Successfully";
             }
 
             return View();

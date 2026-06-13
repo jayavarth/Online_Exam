@@ -51,7 +51,12 @@
 </style>
 
 <h2>Select Exam</h2>
-
+@if (TempData["Message"] != null)
+{
+    <h3 style="color:red">
+        @TempData["Message"]
+    </h3>
+}
 <table>
     <tr>
         <th>Exam</th>
@@ -60,16 +65,16 @@
     </tr>
 
     @foreach (var item in Model)
-{
-    <tr>
-        <td>@item.ExamName</td>
-        <td>@item.LevelNo</td>
-        <td>
-            <a class="btn-start" href="/Exam/Instructions/@item.ExamId">
-                Start
-            </a>
-        </td>
-    </tr>
-}
+    {
+        <tr>
+            <td>@item.ExamName</td>
+            <td>@item.LevelNo</td>
+            <td>
+                <a class="btn-start" href="/Exam/Instructions/@item.ExamId">
+                    Start
+                </a>
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,0 +1,30 @@
+﻿
+
+@{
+    ViewBag.Title = "Upload Questions";
+}
+
+<h2>Upload Questions Excel</h2>
+
+@using (Html.BeginForm(
+    "UploadQuestions",
+    "Admin",
+    FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+    <input type="file"
+           name="file"
+           accept=".xlsx" />
+
+    <br />
+    <br />
+
+    <button type="submit">
+        Upload
+    </button>
+}
+
+<h3 style="color:green">
+    @ViewBag.Message
+</h3>
+

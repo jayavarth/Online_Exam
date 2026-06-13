@@ -25,6 +25,20 @@ namespace OnlineExamSystem.Controllers
         }
         public ActionResult StartExam(int id)
         {
+            int userId =
+                Convert.ToInt32(Session["UserId"]);
+
+            bool allowed =
+                CanAttendLevel(userId, id);
+
+            if (!allowed)
+            {
+                TempData["Message"] =
+                    "You must pass previous level first.";
+
+                return RedirectToAction("SelectExam");
+            }
+
             Session["ExamId"] = id;
 
             var questions =
@@ -115,6 +129,28 @@ namespace OnlineExamSystem.Controllers
                 .ToList();
 
             return View(results);
+        }
+        public bool CanAttendLevel(int userId, int examId)
+        {
+            var currentExam = db.Exams.Find(examId);
+
+            if (currentExam.LevelNo == 1)
+                return true;
+
+            var previousExam =
+                db.Exams.FirstOrDefault(x =>
+                    x.LevelNo == currentExam.LevelNo - 1);
+
+            if (previousExam == null)
+                return false;
+
+            var passResult =
+                db.Results.FirstOrDefault(x =>
+                    x.UserId == userId &&
+                    x.ExamId == previousExam.ExamId &&
+                    x.Status == "PASS");
+
+            return passResult != null;
         }
     }
 
