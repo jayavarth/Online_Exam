@@ -15,63 +15,24 @@ namespace OnlineExamSystem.Controllers
         ExamDbContext db = new ExamDbContext();
 
         public ActionResult Login()
-        {
-            Random random = new Random();
+        { 
+        //{
+        //    Random random = new Random();
 
-            int captcha = random.Next(1000, 9999);
+        //    int captcha = random.Next(1000, 9999);
 
-            Session["AdminCaptcha"] = captcha;
+        //    Session["AdminCaptcha"] = captcha;
 
-            ViewBag.Captcha = captcha;
+        //    ViewBag.Captcha = captcha;
 
+        //    return View();
+      
+            GenerateCaptcha();
             return View();
+        
         }
 
-        //    [HttpPost]
-        //    public ActionResult Login(
-        //string email,
-        //string password,
-        //string captchaInput)
-        //    {
-        //        if (captchaInput != Session["AdminCaptcha"].ToString())
-        //        {
-        //            ViewBag.Message = "Invalid Captcha";
-
-        //            Random random = new Random();
-
-        //            int captcha = random.Next(1000, 9999);
-
-        //            Session["AdminCaptcha"] = captcha;
-
-        //            ViewBag.Captcha = captcha;
-
-        //            return View();
-        //        }
-
-        //        var admin =
-        //            db.Admins.FirstOrDefault(
-        //                x => x.Email == email &&
-        //                     x.Password == password);
-
-        //        if (admin != null)
-        //        {
-        //            Session["Admin"] = admin.Email;
-
-        //            return RedirectToAction("Dashboard");
-        //        }
-
-        //        ViewBag.Message = "Invalid Login";
-
-        //        Random r = new Random();
-
-        //        int c = r.Next(1000, 9999);
-
-        //        Session["AdminCaptcha"] = c;
-
-        //        ViewBag.Captcha = c;
-
-        //        return View();
-        //    }
+        
         [HttpPost]
         public ActionResult Login(
         string email,
@@ -82,6 +43,7 @@ namespace OnlineExamSystem.Controllers
             if (captchaInput != Session["AdminCaptcha"]?.ToString())
             {
                 ViewBag.Message = "Invalid Captcha";
+                GenerateCaptcha();
                 return View();
             }
 
@@ -91,6 +53,7 @@ namespace OnlineExamSystem.Controllers
             if (admin == null)
             {
                 ViewBag.Message = "Admin Email Not Found";
+                GenerateCaptcha();
                 return View();
             }
 
@@ -98,6 +61,7 @@ namespace OnlineExamSystem.Controllers
             if (admin.Password != password)
             {
                 ViewBag.Message = "Incorrect Password";
+                GenerateCaptcha();
                 return View();
             }
 
@@ -241,6 +205,16 @@ namespace OnlineExamSystem.Controllers
             }
 
             return View();
+        }
+        private void GenerateCaptcha()
+        {
+            Random random = new Random();
+
+            int captcha = random.Next(1000, 9999);
+
+            Session["AdminCaptcha"] = captcha;
+
+            ViewBag.Captcha = captcha;
         }
     }
 }
