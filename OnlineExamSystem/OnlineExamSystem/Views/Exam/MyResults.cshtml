@@ -1,40 +1,50 @@
 ﻿@{
     ViewBag.Title = "MyResults";
 }
-
 @model IEnumerable<OnlineExamSystem.Models.Result>
 
 <style>
+    body {
+        font-family: Arial;
+        background-color: #f8f8f8;
+    }
+
+    /* FORCE TEXT VISIBILITY */
+    table, td {
+        color: black;
+    }
+
+    /* Title */
     h2 {
         text-align: center;
-        color: darkblue;
-        margin-bottom: 20px;
+        color: #556B2F;
     }
 
+    /* Table */
     table {
         width: 80%;
-        margin: auto;
+        margin: 30px auto;
         border-collapse: collapse;
-        font-family: Arial;
+        background: white;
+        box-shadow: 0px 0px 10px gray;
     }
 
+    /* Header */
     th {
-        background-color: #4CAF50;
+        background: linear-gradient(180deg, #556B2F, #6B8E23);
         color: white;
         padding: 10px;
     }
 
+    /* Cells */
     td {
         text-align: center;
-        padding: 8px;
+        padding: 10px;
     }
 
+    /* Alternating rows */
     tr:nth-child(even) {
         background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #ddd;
     }
 </style>
 
@@ -49,13 +59,17 @@
     </tr>
 
     @foreach (var r in Model)
-{
-    <tr>
-        <td>@r.ExamId</td>
-        <td>@r.Score</td>
-        <td>@r.Status</td>
-        <td>@r.ExamDate</td>
-    </tr>
-}
+    {
+        <tr>
+            <td>@r.ExamId</td>
+            <td>@r.Score</td>
 
+            <!-- Optional color for status -->
+            <td style="color:@(r.Status == "PASS" ? "green" : "red")">
+                @r.Status
+            </td>
+
+            <td>@r.ExamDate</td>
+        </tr>
+    }
 </table>

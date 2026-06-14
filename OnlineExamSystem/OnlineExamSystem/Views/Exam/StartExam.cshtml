@@ -1,119 +1,124 @@
 ﻿@{
     ViewBag.Title = "StartExam";
 }
-
 @model IEnumerable<OnlineExamSystem.Models.Question>
 
 <style>
     body {
         font-family: Arial;
+        background-color: #f8f8f8;
+        color: black; /* IMPORTANT FIX */
     }
 
+    /* Remove bad global styles */
+    .question-box, .question-box * {
+        background: white !important;
+        color: black !important;
+    }
+
+    /* Heading */
     h2 {
         text-align: center;
-        color: darkblue;
+        color: #556B2F;
     }
 
+    /* Timer */
     #timer {
         text-align: right;
         font-size: 20px;
-        color: red;
-        margin-bottom: 15px;
-        padding-right: 20px;
+        color: #556B2F;
+        margin-right: 20px;
+        margin-bottom: 10px;
     }
 
+    /* Question card */
     .question-box {
         width: 80%;
-        margin: 15px auto;
+        margin: 20px auto;
         padding: 15px;
         border-radius: 8px;
         box-shadow: 0px 0px 8px gray;
     }
 
+    /* Question text */
     .question-text {
+        font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
     }
 
+    /* Options */
     .option {
-        margin: 5px 0;
+        margin: 6px 0;
     }
 
-    .submit-btn {
+    /* Button */
+    .btn {
         display: block;
-        margin: 20px auto;
+        margin: 25px auto;
         padding: 10px 20px;
-        background-color: green;
+        background: linear-gradient(180deg, #556B2F, #6B8E23);
         color: white;
         border: none;
         border-radius: 5px;
         font-size: 16px;
         cursor: pointer;
     }
-
-        .submit-btn:hover {
-            background-color: darkgreen;
-        }
 </style>
 
 <h2>Online Exam</h2>
 
-<div id="timer">
-    30:00
-</div>
+<div id="timer">30:00</div>
 
-<form method="post"
-      action="/Exam/SubmitExam"
-      id="examForm">
+<form method="post" action="/Exam/SubmitExam" id="examForm">
 
     @foreach (var q in Model)
-{
-    <div class="question-box">
+    {
+        <div class="question-box">
 
-        <input type="hidden"
-               name="QuestionId"
-               value="@q.QuestionId" />
+            <input type="hidden" name="QuestionId" value="@q.QuestionId" />
 
-        <div class="question-text">
-            @q.QuestionText
+            <div class="question-text">
+                @q.QuestionText
+            </div>
+
+            <div class="option">
+                <input type="radio" name="Answer_@q.QuestionId" value="A" />
+                @q.OptionA
+            </div>
+
+            <div class="option">
+                <input type="radio" name="Answer_@q.QuestionId" value="B" />
+                @q.OptionB
+            </div>
+
+            <div class="option">
+                <input type="radio" name="Answer_@q.QuestionId" value="C" />
+                @q.OptionC
+            </div>
+
+            <div class="option">
+                <input type="radio" name="Answer_@q.QuestionId" value="D" />
+                @q.OptionD
+            </div>
+
         </div>
+    }
 
-        <div class="option">
-            <input type="radio" name="Answer_@q.QuestionId" value="A" /> @q.OptionA
-        </div>
-
-        <div class="option">
-            <input type="radio" name="Answer_@q.QuestionId" value="B" /> @q.OptionB
-        </div>
-
-        <div class="option">
-            <input type="radio" name="Answer_@q.QuestionId" value="C" /> @q.OptionC
-        </div>
-
-        <div class="option">
-            <input type="radio" name="Answer_@q.QuestionId" value="D" /> @q.OptionD
-        </div>
-
-    </div>
-}
-
-    <button type="submit" class="submit-btn">
-        Submit Exam
-    </button>
+    <button type="submit" class="btn">Submit Exam</button>
 
 </form>
 
 <script>
     var time = 1800; // 30 minutes
 
-    var timerInterval = setInterval(function () {
+    var timer = setInterval(function () {
 
         time--;
 
         var minutes = Math.floor(time / 60);
         var seconds = time % 60;
 
-        // Add leading zero
         if (seconds < 10) {
             seconds = "0" + seconds;
         }
@@ -122,7 +127,7 @@
             minutes + ":" + seconds;
 
         if (time <= 0) {
-            clearInterval(timerInterval);
+            clearInterval(timer);
             document.getElementById("examForm").submit();
         }
 

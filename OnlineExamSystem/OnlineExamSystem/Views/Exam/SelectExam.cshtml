@@ -1,62 +1,54 @@
 ﻿@{
     ViewBag.Title = "SelectExam";
 }
-
 @model IEnumerable<OnlineExamSystem.Models.Exam>
 
 <style>
+    body {
+        font-family: Arial;
+        background-color: #f8f8f8;
+    }
+
+    
+    table, td {
+        color: black;
+    }
+
     h2 {
         text-align: center;
-        color: darkblue;
-        margin-bottom: 20px;
+        color: #556B2F;
     }
 
     table {
         width: 80%;
-        margin: auto;
+        margin: 30px auto;
         border-collapse: collapse;
-        font-family: Arial;
+        background: white;
+        box-shadow: 0px 0px 10px gray;
     }
 
     th {
-        background-color: #007bff;
+        background: linear-gradient(180deg, #556B2F, #6B8E23);
         color: white;
         padding: 10px;
     }
 
     td {
-        padding: 8px;
         text-align: center;
+        padding: 10px;
     }
 
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #ddd;
-    }
-
-    .btn-start {
+    .btn {
         padding: 6px 12px;
-        background-color: green;
+        background: linear-gradient(180deg, #556B2F, #6B8E23);
         color: white;
         text-decoration: none;
         border-radius: 5px;
     }
-
-        .btn-start:hover {
-            background-color: darkgreen;
-        }
 </style>
 
 <h2>Select Exam</h2>
-@if (TempData["Message"] != null)
-{
-    <h3 style="color:red">
-        @TempData["Message"]
-    </h3>
-}
+
 <table>
     <tr>
         <th>Exam</th>
@@ -70,11 +62,10 @@
             <td>@item.ExamName</td>
             <td>@item.LevelNo</td>
             <td>
-                <a class="btn-start" href="/Exam/Instructions/@item.ExamId">
+                <a href="/Exam/Instructions/@item.ExamId" class="btn">
                     Start
                 </a>
             </td>
         </tr>
     }
-
 </table>

@@ -4,36 +4,50 @@
 @model OnlineExamSystem.Models.Exam
 
 <style>
+    body {
+        font-family: Arial;
+        background-color: #f8f8f8;
+    }
+
+    .container, .container p {
+        color: black;
+    }
+
+    .container {
+        width: 50%;
+        margin: 40px auto;
+        padding: 25px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px gray;
+        text-align: center;
+    }
+
     h2 {
-        color: blue;
+        color: #556B2F;
     }
 
-    p {
-        font-size: 18px;
-        margin: 5px 0;
-    }
-
-    a {
+    .btn {
         display: inline-block;
-        margin-top: 10px;
-        padding: 8px 15px;
-        background-color: green;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: linear-gradient(180deg, #556B2F, #6B8E23);
         color: white;
         text-decoration: none;
         border-radius: 5px;
     }
-
-        a:hover {
-            background-color: darkgreen;
-        }
 </style>
 
-<h2>Exam Instructions</h2>
+<div class="container">
+    <h2>Exam Instructions</h2>
 
-<p>Total Questions : @Model.TotalQuestions</p>
-<p>Pass Marks : @Model.PassMarks</p>
-<p>Duration : @Model.DurationMinutes Minutes</p>
+    <p>Total Questions: @Model.TotalQuestions</p>
+    <p>Pass Marks: @Model.PassMarks</p>
+    <p>Duration: @Model.DurationMinutes Minutes</p>
 
-<a href="/Exam/StartExam/@Model.ExamId">
-    Start Exam
-</a>
+    <br />
+
+    <a href="/Exam/StartExam/@Model.ExamId" class="btn">
+        Start Exam
+    </a>
+</div>
