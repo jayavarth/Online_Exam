@@ -120,16 +120,68 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public ActionResult ForgotPassword(string email)
+        //{
+
+        //    var admin =
+        //        db.Admins.FirstOrDefault(x => x.Email == email);
+
+        //    if (admin == null)
+        //    {
+        //        ViewBag.Message = "Email Not Found";
+        //        return View();
+        //    }
+
+        //    Random r = new Random();
+
+        //    string otp = r.Next(100000, 999999).ToString();
+
+        //    admin.OTP = otp;
+        //    admin.OTPExpiry = DateTime.Now.AddMinutes(5);
+
+        //    db.SaveChanges();
+
+        //    MailMessage mail = new MailMessage();
+
+        //    mail.From = new MailAddress("vilvapriya27@gmail.com");
+
+        //    mail.To.Add(admin.Email);
+
+        //    mail.Subject = "Password Reset OTP";
+
+        //    mail.Body = "Your OTP is : " + otp;
+
+        //    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+
+        //    smtp.Credentials =
+        //        new NetworkCredential(
+        //            "vilvapriya27@gmail.com",
+        //            "osopddmzkdbdomri");
+
+        //    smtp.EnableSsl = true;
+
+        //    smtp.Send(mail);
+
+        //    Session["ResetEmail"] = email;
+
+        //    return RedirectToAction("VerifyOTP");
+        //}
         [HttpPost]
         public ActionResult ForgotPassword(string email)
         {
+            if (email != "infiniteglobaluniversity@gmail.com")
+            {
+                ViewBag.Message = "This is not an Admin Email";
+                return View();
+            }
 
             var admin =
                 db.Admins.FirstOrDefault(x => x.Email == email);
 
             if (admin == null)
             {
-                ViewBag.Message = "Email Not Found";
+                ViewBag.Message = "Admin Email Not Found";
                 return View();
             }
 
@@ -145,19 +197,16 @@ namespace OnlineExamSystem.Controllers
             MailMessage mail = new MailMessage();
 
             mail.From = new MailAddress("vilvapriya27@gmail.com");
-
             mail.To.Add(admin.Email);
 
             mail.Subject = "Password Reset OTP";
-
             mail.Body = "Your OTP is : " + otp;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
 
-            smtp.Credentials =
-                new NetworkCredential(
-                    "vilvapriya27@gmail.com",
-                    "osopddmzkdbdomri");
+            smtp.Credentials = new NetworkCredential(
+                "vilvapriya27@gmail.com",
+                "osopddmzkdbdomri");
 
             smtp.EnableSsl = true;
 
@@ -167,6 +216,7 @@ namespace OnlineExamSystem.Controllers
 
             return RedirectToAction("VerifyOTP");
         }
+
         public ActionResult UploadQuestions()
         {
             return View();
