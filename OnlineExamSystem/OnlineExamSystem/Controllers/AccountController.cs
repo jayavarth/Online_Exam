@@ -28,44 +28,9 @@ namespace OnlineExamSystem.Controllers
                     "QualificationName");
 
             return View();
-            //return View();
+          
         }
 
-        //[HttpPost]
-        //public ActionResult Register(User user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var existingUser =
-        //        db.Users.FirstOrDefault(x => x.Email == user.Email);
-        //        if (db.Users.Any(x => x.Email == user.Email))
-        //        {
-        //            ModelState.AddModelError(
-        //                "Email",
-        //                "Email already registered");
-        //        }
-
-        //        if (existingUser != null)
-        //        {
-        //            ViewBag.Message = "Email already exists";
-        //            return View();
-        //        }
-        //        int age = DateTime.Now.Year - user.DOB.Year;
-
-        //        if (age < 18)
-        //        {
-        //            ModelState.AddModelError(
-        //                "DOB",
-        //                "Age must be 18 or above");
-        //        }
-        //        db.Users.Add(user);
-        //        db.SaveChanges();
-
-        //        return RedirectToAction("Login");
-        //    }
-
-        //    return View();
-        //}
         [HttpPost]
         public ActionResult Register(User user)
         {
@@ -99,12 +64,22 @@ namespace OnlineExamSystem.Controllers
                     "DOB",
                     "Age must be 18+");
             }
-
+            if (Session["EmailVerified"] == null ||
+    Session["EmailVerified"].ToString() != "true")
+            {
+                ModelState.AddModelError(
+                    "Email",
+                    "Please verify your email first");
+            }
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
                 db.SaveChanges();
+                Session.Remove("EmailOTP");
+                Session.Remove("VerifyEmail");
+                Session.Remove("EmailVerified");
 
+                
                 TempData["Success"] =
                     "Registration Successful";
 
@@ -210,25 +185,8 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult ForgotPassword(string email, string newPassword)
-        //{
-        //    var user = db.Users.FirstOrDefault(x => x.Email == email);
-
-        //    if (user != null)
-        //    {
-        //        user.Password = newPassword;
-        //        db.SaveChanges();
-
-        //        ViewBag.Message = "Password Updated Successfully";
-        //    }
-        //    else
-        //    {
-        //        ViewBag.Message = "Email Not Found";
-        //    }
-
-        //    return View();
-        //}
+       
+       
         [HttpPost]
         public ActionResult ForgotPassword(string email)
         {
@@ -271,57 +229,7 @@ namespace OnlineExamSystem.Controllers
                 return View();
             }
 
-            //    MailMessage mail =
-            //        new MailMessage();
-
-            //    mail.From =
-            //        new MailAddress("vilvapriya27@gmail.com");
-
-            //    //mail.To.Add(user.Email);
-            //    mail.To.Add("vilvamani27@gmail.com");
-
-
-            //    mail.Subject = "Password Reset OTP";
-
-            //    mail.Body =
-            //        "Your OTP is : " + otp;
-            //    SmtpClient smtp = new SmtpClient();
-            //    smtp.Host = "smtp.gmail.com";
-            //    smtp.Port = 465;
-            //    smtp.EnableSsl = true;
-            //    smtp.UseDefaultCredentials = false;
-
-            //    smtp.Credentials =
-            //        new NetworkCredential(
-            //            "vilvapriya27@gmail.com",
-            //            "nmkgholyompnjkkr");
-            //   // SmtpClient smtp =
-            //   //new SmtpClient("smtp.gmail.com", 587);
-
-            //    //smtp.Credentials =
-            //    //    new NetworkCredential(
-            //    //        "vilvapriya27@gmail.com",
-            //    //        "nmkgholyompnjkkr");
-
-            //    smtp.EnableSsl = true;
-
-            //    //smtp.Send(mail);
-            //    try
-            //    {
-            //        smtp.Send(mail);
-
-            //        ViewBag.Message = "OTP Sent Successfully";
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        ViewBag.Message = ex.ToString();
-
-            //        return View();
-            //    }
-
-            //    Session["ResetEmail"] = email;
-
-            //    return RedirectToAction("VerifyOTP");
+            
             MailMessage mail = new MailMessage();
 
             mail.From = new MailAddress("vilvapriya27@gmail.com");
@@ -482,5 +390,66 @@ namespace OnlineExamSystem.Controllers
                 cities,
                 JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public JsonResult SendEmailOTP(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return Json("Email is empty");
+            }
+            Random r = new Random();
+
+            string otp =
+                r.Next(100000, 999999).ToString();
+
+            Session["EmailOTP"] = otp;
+            Session["VerifyEmail"] = email;
+
+            MailMessage mail =
+                new MailMessage();
+
+            mail.From =
+                new MailAddress("infiniteglobaluniversity@gmail.com");
+
+            mail.To.Add(email);
+
+            mail.Subject =
+                "Email Verification OTP";
+
+            mail.Body =
+                "Your OTP is : " + otp;
+
+            SmtpClient smtp =
+                new SmtpClient(
+                    "smtp.gmail.com",
+                    587);
+
+            smtp.Credentials =
+                new NetworkCredential(
+                    "infiniteglobaluniversity@gmail.com",
+                    "krxe gzwy hcyi ovob");
+
+            smtp.EnableSsl = true;
+
+            smtp.Send(mail);
+
+            return Json("OTP Sent");
+        }
+        [HttpPost]
+        public JsonResult VerifyEmailOTP(string email, string otp)
+        {
+            if (Session["EmailOTP"] != null &&
+                Session["VerifyEmail"] != null &&
+                Session["VerifyEmail"].ToString() == email &&
+                Session["EmailOTP"].ToString() == otp)
+            {
+                Session["EmailVerified"] = "true";
+                return Json("Success");
+            }
+
+            return Json("Failed");
+        }
+
+
     }
 }

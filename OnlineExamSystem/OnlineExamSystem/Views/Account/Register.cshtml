@@ -1,4 +1,4 @@
-﻿@model OnlineExamSystem.Models.User
+﻿ @model OnlineExamSystem.Models.User
 
 @{
     Layout = null;
@@ -43,6 +43,7 @@
                 width: 70%;
                 max-width: 300px;
             }
+
         .right {
             flex: 1;
             background: #f5f7f2;
@@ -169,6 +170,70 @@
 
         });
     </script>
+    @*<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>*@
+
+    <script>
+        function SendOTP() {
+
+            var email = $("#Email").val();
+
+            if (email == "") {
+                alert("Please enter email first");
+                return;
+            }
+
+            $.post(
+                '/Account/SendEmailOTP',
+                { email: email },
+
+                function (result) {
+
+                    alert(result);
+
+                    if (result == "OTP Sent") {
+
+                        $("#otpSection").show();
+
+                    }
+                });
+        }
+        function VerifyOTP() {
+
+            var email = $("#Email").val();
+            var otp = $("#otp").val();
+
+            $.post(
+                '/Account/VerifyEmailOTP',
+                {
+                    email: email,
+                    otp: otp
+                },
+
+                function (result) {
+
+                    if (result == "Success") {
+
+                        $("#msg")
+                            .html("✓ Email Verified Successfully");
+
+                        $("#EmailVerified")
+                            .val("true");
+
+                        $("#otpSection").hide();
+
+                        $("#btnSendOtp").prop("disabled", true);
+
+                        $("#Email").prop("readonly", true);
+                    }
+                    else {
+
+                        alert("Invalid OTP");
+                    }
+                });
+        }
+
+
+    </script>
 
     <div class="container">
 
@@ -197,8 +262,42 @@
 
                     <div class="form-group">
                         <label>Email</label>
-                        @Html.TextBoxFor(m => m.Email)
+                        @*@Html.TextBoxFor(m => m.Email)*@
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+                        @*<label>Email</label>*@
+                        <input type="email" id="Email" name="Email" required />
+
+                        <button type="button"
+                                id="btnSendOtp"
+                                onclick="SendOTP()">
+                            Verify Email
+                        </button>
+
+                        <br /><br />
+
+                        <div id="otpSection" style="display:none;">
+
+                            <input type="text"
+                                   id="otp"
+                                   placeholder="Enter OTP" />
+
+                            <button type="button"
+                                    onclick="VerifyOTP()">
+                                Verify OTP
+                            </button>
+
+                        </div>
+
+                        <br />
+
+                        <span id="msg"
+                              style="color:green;font-weight:bold;">
+                        </span>
+
+                        @*<input type="hidden"
+        id="EmailVerified"
+        name="EmailVerified"
+        value="false" />*@
                     </div>
 
                     <div class="form-group">
@@ -222,9 +321,9 @@
                     <div class="form-group">
                         <label>Country</label>
                         @*@Html.DropDownListFor(m => m.CountryId,
-        (ViewBag.Countries as SelectList),
-        "--Select Country--",
-        new { id = "CountryId" })*@
+                            (ViewBag.Countries as SelectList),
+                            "--Select Country--",
+                            new { id = "CountryId" })*@
                         @Html.DropDownListFor(
     m => m.CountryId,
     ViewBag.Countries as IEnumerable<SelectListItem>,
@@ -256,8 +355,8 @@
                     <div class="form-group">
                         <label>Qualification</label>
                         @*@Html.DropDownListFor(m => m.QualificationId,
-        (ViewBag.Qualifications as SelectList),
-        "--Select Qualification--")*@
+                            (ViewBag.Qualifications as SelectList),
+                            "--Select Qualification--")*@
                         @Html.DropDownListFor(
     m => m.QualificationId,
     ViewBag.Qualifications as IEnumerable<SelectListItem>,
