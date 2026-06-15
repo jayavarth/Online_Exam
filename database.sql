@@ -519,3 +519,23 @@ INSERT INTO Cities VALUES (33,'San Diego');
 INSERT INTO Cities VALUES (33,'San Jose');
 INSERT INTO Cities VALUES (33,'San Francisco');
 INSERT INTO Cities VALUES (33,'Sacramento');
+
+
+
+select * from users
+ALTER TABLE Results
+ADD LevelNo INT;
+ALTER TABLE Users
+ADD OTP NVARCHAR(10);
+
+ALTER TABLE Users
+ADD OTPExpiry DATETIME;
+
+
+ALTER TABLE admins
+ADD OTP NVARCHAR(10);
+
+ALTER TABLE admins
+ADD OTPExpiry DATETIME;
+
+select * from admins
