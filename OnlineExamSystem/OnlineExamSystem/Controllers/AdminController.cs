@@ -120,32 +120,14 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult ForgotPassword(string email, string newPassword)
-        //{
-        //    var admin = db.Admins.FirstOrDefault(x => x.Email == email);
-
-        //    if (admin != null)
-        //    {
-        //        admin.Password = newPassword;
-        //        db.SaveChanges();
-
-        //        ViewBag.Message = "Password Updated";
-        //    }
-        //    else
-        //    {
-        //        ViewBag.Message = "Admin Not Found";
-        //    }
-
-        //    return View();
-        //}
         [HttpPost]
         public ActionResult ForgotPassword(string email)
         {
-            var user =
-                db.Users.FirstOrDefault(x => x.Email == email);
 
-            if (user == null)
+            var admin =
+                db.Admins.FirstOrDefault(x => x.Email == email);
+
+            if (admin == null)
             {
                 ViewBag.Message = "Email Not Found";
                 return View();
@@ -153,34 +135,29 @@ namespace OnlineExamSystem.Controllers
 
             Random r = new Random();
 
-            string otp =
-                r.Next(100000, 999999).ToString();
+            string otp = r.Next(100000, 999999).ToString();
 
-            user.OTP = otp;
-            user.OTPExpiry = DateTime.Now.AddMinutes(5);
+            admin.OTP = otp;
+            admin.OTPExpiry = DateTime.Now.AddMinutes(5);
 
             db.SaveChanges();
 
-            MailMessage mail =
-                new MailMessage();
+            MailMessage mail = new MailMessage();
 
-            mail.From =
-                new MailAddress("vilvapriya27@gmail.com");
+            mail.From = new MailAddress("vilvapriya27@gmail.com");
 
-            mail.To.Add(user.Email);
+            mail.To.Add(admin.Email);
 
             mail.Subject = "Password Reset OTP";
 
-            mail.Body =
-                "Your OTP is : " + otp;
+            mail.Body = "Your OTP is : " + otp;
 
-            SmtpClient smtp =
-                new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
 
             smtp.Credentials =
                 new NetworkCredential(
                     "vilvapriya27@gmail.com",
-                    "nmkg holy ompn jkkr");
+                    "osopddmzkdbdomri");
 
             smtp.EnableSsl = true;
 
@@ -268,24 +245,23 @@ namespace OnlineExamSystem.Controllers
         [HttpPost]
         public ActionResult VerifyOTP(string otp)
         {
-            string email =
+            string admin =
                 Session["ResetEmail"].ToString();
 
-            var user =
-                db.Users.FirstOrDefault(x => x.Email == email);
-
-            if (user == null)
+            var adminUser =
+                db.Admins.FirstOrDefault(x => x.Email == admin);
+            if (adminUser == null)
             {
                 return RedirectToAction("ForgotPassword");
             }
-
-            if (user.OTP != otp)
+                            
+            if (adminUser.OTP != otp)
             {
                 ViewBag.Message = "Invalid OTP";
                 return View();
             }
 
-            if (user.OTPExpiry < DateTime.Now)
+            if (adminUser.OTPExpiry < DateTime.Now)
             {
                 ViewBag.Message = "OTP Expired";
                 return View();
