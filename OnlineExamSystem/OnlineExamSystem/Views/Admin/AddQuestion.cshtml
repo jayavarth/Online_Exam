@@ -2,42 +2,38 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Add Questions</h2>
+<h2 style="color:#556B2F;">Add Questions</h2>
+
+<select id="examId" class="dropdown">
+    <option value="">-- Select Exam --</option>
+    <option value="1">C# Level 1</option>
+    <option value="2">C# Level 2</option>
+    <option value="3">C# Level 3</option>
+</select>
+
 <style>
-    .main {
-        flex: 1;
-        padding: 40px 60px;
-    }
-
-    h2 {
-        color: #556B2F;
+    .dropdown {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
         margin-bottom: 20px;
-    }
-
-    .question-wrapper {
-        max-width: 800px;
     }
 
     .question-card {
         background: white;
-        padding: 25px;
-        border-radius: 16px;
-        margin-bottom: 20px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         position: relative;
     }
 
-    input[type="text"] {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        margin-bottom: 12px;
-        font-size: 14px;
-    }
-
-        input[type="text"]::placeholder {
-            color: #aaa;
+        .question-card input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
         }
 
     .option {
@@ -46,145 +42,174 @@
         margin-bottom: 8px;
     }
 
-        .option input[type="text"] {
-            margin-bottom: 0;
-        }
-
         .option input[type="radio"] {
-            margin-right: 12px;
+            margin-right: 10px;
         }
 
     .delete-btn {
         position: absolute;
         top: 10px;
         right: 10px;
-        background: #ff4d4d;
+        background: #e53935;
         color: white;
         border: none;
-        padding: 6px 10px;
+        padding: 5px 10px;
         border-radius: 6px;
         cursor: pointer;
     }
 
     .btn {
-        padding: 12px 20px;
         background: #556B2F;
         color: white;
+        padding: 10px 18px;
         border-radius: 8px;
         border: none;
+        margin-top: 10px;
         cursor: pointer;
-        margin-top: 15px;
     }
 
         .btn:hover {
             background: #3e4f22;
         }
-
-    .button-group {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-    }
 </style>
 
-<div class="question-wrapper">
+<div id="questions-container">
 
-    <div id="questions-container">
+    <div class="question-card">
+        <button class="delete-btn">❌</button>
 
-        <div class="question-card">
+        <input type="text" class="question" placeholder="Enter question" />
 
-            <button type="button" class="delete-btn">❌</button>
-
-            <input type="text" class="question" placeholder="Enter your question" />
-
-            <div class="option">
-                <input type="radio" name="q1" value="A">
-                <input type="text" placeholder="Option A" class="optA">
-            </div>
-
-            <div class="option">
-                <input type="radio" name="q1" value="B">
-                <input type="text" placeholder="Option B" class="optB">
-            </div>
-
-            <div class="option">
-                <input type="radio" name="q1" value="C">
-                <input type="text" placeholder="Option C" class="optC">
-            </div>
-
-            <div class="option">
-                <input type="radio" name="q1" value="D">
-                <input type="text" placeholder="Option D" class="optD">
-            </div>
-
+        <div class="option">
+            <input type="radio" name="q1" value="A">
+            <input type="text" class="optA" placeholder="Option A">
         </div>
 
+        <div class="option">
+            <input type="radio" name="q1" value="B">
+            <input type="text" class="optB" placeholder="Option B">
+        </div>
+
+        <div class="option">
+            <input type="radio" name="q1" value="C">
+            <input type="text" class="optC" placeholder="Option C">
+        </div>
+
+        <div class="option">
+            <input type="radio" name="q1" value="D">
+            <input type="text" class="optD" placeholder="Option D">
+        </div>
     </div>
-
-    <button id="addQuestion" class="btn add-btn">+ Add Another Question</button>
-
-    <button id="submitBtn" class="btn">Submit Questions</button>
 
 </div>
 
-<script>
-    let questionCount = 1;
+<button id="addQuestion" class="btn">+ Add Question</button>
+<button id="submitBtn" class="btn">Submit</button>
 
-    $("#addQuestion").click(function () {
-        questionCount++;
+@section scripts{
+    <script>
+        $(document).ready(function () {
 
-        let html = `
-    <div class="question-card">
-        <button type="button" class="delete-btn">❌</button>
+            let questionCount = 1;
 
-        <input type="text" class="question" placeholder="Enter your question" />
+            $("#addQuestion").click(function () {
+                questionCount++;
 
-        <div class="option">
-            <input type="radio" name="q${questionCount}" value="A">
-            <input type="text" placeholder="Option A" class="optA">
-        </div>
+                let html = `
+            <div class="question-card">
+                <button class="delete-btn">❌</button>
 
-        <div class="option">
-            <input type="radio" name="q${questionCount}" value="B">
-            <input type="text" placeholder="Option B" class="optB">
-        </div>
+                <input type="text" class="question" placeholder="Enter question" />
 
-        <div class="option">
-            <input type="radio" name="q${questionCount}" value="C">
-            <input type="text" placeholder="Option C" class="optC">
-        </div>
+                <div class="option">
+                    <input type="radio" name="q${questionCount}" value="A">
+                    <input type="text" class="optA" placeholder="Option A">
+                </div>
 
-        <div class="option">
-            <input type="radio" name="q${questionCount}" value="D">
-            <input type="text" placeholder="Option D" class="optD">
-        </div>
-    </div>`;
+                <div class="option">
+                    <input type="radio" name="q${questionCount}" value="B">
+                    <input type="text" class="optB" placeholder="Option B">
+                </div>
 
-        $("#questions-container").append(html);
-    });
+                <div class="option">
+                    <input type="radio" name="q${questionCount}" value="C">
+                    <input type="text" class="optC" placeholder="Option C">
+                </div>
 
-    $(document).on("click", ".delete-btn", function () {
-        $(this).closest(".question-card").remove();
-    });
+                <div class="option">
+                    <input type="radio" name="q${questionCount}" value="D">
+                    <input type="text" class="optD" placeholder="Option D">
+                </div>
+            </div>`;
 
-    $("#submitBtn").click(function () {
-
-        let allQuestions = [];
-
-        $(".question-card").each(function () {
-
-            let q = $(this);
-
-            allQuestions.push({
-                QuestionText: q.find(".question").val(),
-                OptionA: q.find(".optA").val(),
-                OptionB: q.find(".optB").val(),
-                OptionC: q.find(".optC").val(),
-                OptionD: q.find(".optD").val(),
-                CorrectAnswer: q.find("input[type=radio]:checked").val()
+                $("#questions-container").append(html);
             });
-        });
 
-        console.log(allQuestions);
-    });
-</script>
+            $(document).on("click", ".delete-btn", function () {
+                $(this).closest(".question-card").remove();
+            });
+
+            $("#submitBtn").click(function () {
+
+                let examId = $("#examId").val();
+
+                if (!examId) {
+                    alert("Please select exam!");
+                    return;
+                }
+
+                let allQuestions = [];
+                let valid = true;
+
+                $(".question-card").each(function () {
+
+                    let q = $(this);
+
+                    let questionText = q.find(".question").val();
+                    let answer = q.find("input[type=radio]:checked").val();
+
+                    if (!questionText) {
+                        alert("Question cannot be empty!");
+                        valid = false;
+                        return false;
+                    }
+
+                    if (!answer) {
+                        alert("Select correct answer!");
+                        valid = false;
+                        return false;
+                    }
+
+                    allQuestions.push({
+                        ExamId: examId,
+                        QuestionText: questionText,
+                        OptionA: q.find(".optA").val(),
+                        OptionB: q.find(".optB").val(),
+                        OptionC: q.find(".optC").val(),
+                        OptionD: q.find(".optD").val(),
+                        CorrectAnswer: answer
+                    });
+
+                });
+
+                if (!valid) return;
+
+                $.ajax({
+                    url: '/Admin/SaveQuestions',
+                    type: 'POST',
+                    data: JSON.stringify(allQuestions),
+                    contentType: 'application/json; charset=utf-8',
+                    success: function () {
+                        alert("✅ Questions saved successfully!");
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("❌ Error saving questions!");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+}

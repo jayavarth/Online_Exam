@@ -299,6 +299,40 @@ namespace OnlineExamSystem.Controllers
         }
 
         [HttpPost]
+        public ActionResult SaveQuestions(List<Question> questions)
+        {
+            try
+            {
+                if (questions == null || questions.Count == 0)
+                {
+                    return Json(new { success = false, message = "No questions received" });
+                }
+
+                foreach (var q in questions)
+                {
+                    if (string.IsNullOrEmpty(q.QuestionText) || string.IsNullOrEmpty(q.CorrectAnswer))
+                    {
+                        return Json(new { success = false, message = "Invalid question data" });
+                    }
+
+                    db.Questions.Add(q);
+                }
+
+                db.SaveChanges();
+
+                return Json(new { success = true, message = "Questions saved successfully" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Error: " + ex.InnerException?.Message ?? ex.Message
+                });
+            }
+        }
+
+        [HttpPost]
         public ActionResult ResetPassword(
             string newPassword,
             string confirmPassword)

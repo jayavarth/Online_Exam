@@ -1,42 +1,36 @@
 ﻿@model IEnumerable<OnlineExamSystem.Models.Result>
 
 @{
-    Layout = null;
+    ViewBag.Title = "View Results";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <style>
-    body {
-        background: #121212;
-        font-family: 'Segoe UI', sans-serif;
-        color: white;
-    }
-
-    .page-container {
-        padding: 25px;
-    }
-
     .title {
         font-size: 24px;
-        font-weight: 600;
+        color: #556B2F;
         margin-bottom: 20px;
+        font-weight: 600;
     }
 
     .card {
-        background: #1e1e1e;
-        border-radius: 12px;
+        background: white;
+        border-radius: 16px;
         padding: 20px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 10px;
+    }
+
+    thead {
+        background: linear-gradient(90deg, #556B2F, #6B8E23);
+        color: white;
     }
 
     th {
-        background: #5b2be0;
-        color: white;
         padding: 12px;
         text-align: left;
         font-size: 14px;
@@ -44,60 +38,65 @@
 
     td {
         padding: 12px;
-        border-bottom: 1px solid #333;
-        font-size: 14px;
+        border-bottom: 1px solid #eee;
+        color: #444;
     }
 
     tr:hover {
-        background: #2a2a2a;
+        background: #f4f8ee;
     }
 
-    /* Status Colors */
-    .pass {
-        color: #4caf50;
-        font-weight: bold;
-    }
-
-    .fail {
-        color: #ff4d4d;
-        font-weight: bold;
-    }
-
-    /* Optional badge style */
     .badge {
-        padding: 5px 10px;
-        border-radius: 6px;
+        padding: 6px 12px;
+        border-radius: 8px;
         font-size: 12px;
+        font-weight: 600;
         display: inline-block;
     }
 
-    .pass-bg {
-        background: rgba(76, 175, 80, 0.2);
+    .pass {
+        background: #e8f5e9;
+        color: #2e7d32;
     }
 
-    .fail-bg {
-        background: rgba(255, 77, 77, 0.2);
+    .fail {
+        background: #ffebee;
+        color: #c62828;
+    }
+
+    .no-data {
+        text-align: center;
+        padding: 20px;
+        color: #888;
     }
 </style>
 
-<div class="page-container">
+<h2 class="title">Exam Results</h2>
 
-    <div class="title">📊 Exam Results</div>
+<div class="card">
 
-    <div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>Exam Id</th>
+                <th>Score</th>
+                <th>Status</th>
+            </tr>
+        </thead>
 
-        <table>
-            <thead>
+        <tbody>
+            @if (!Model.Any())
+            {
                 <tr>
-                    <th>User Id</th>
-                    <th>Exam Id</th>
-                    <th>Score</th>
-                    <th>Status</th>
+                    <td colspan="4" class="no-data">
+                        No results available ❌
+                    </td>
                 </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var r in Model)
+            }
+            else
+            {
+                foreach (var r in Model)
                 {
                     <tr>
                         <td>@r.UserId</td>
@@ -105,16 +104,15 @@
                         <td>@r.Score</td>
 
                         <td>
-                            <span class="badge @(r.Status == "Pass" ? "pass pass-bg" : "fail fail-bg")">
+                            <span class="badge @(r.Status == "Pass" ? "pass" : "fail")">
                                 @r.Status
                             </span>
                         </td>
-
                     </tr>
                 }
-            </tbody>
-        </table>
+            }
+        </tbody>
 
-    </div>
+    </table>
 
 </div>

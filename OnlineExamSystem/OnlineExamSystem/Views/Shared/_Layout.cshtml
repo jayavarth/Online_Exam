@@ -10,83 +10,80 @@
 
     <style>
         body {
-            background: #121212;
-            color: white;
+            margin: 0;
             font-family: 'Segoe UI', sans-serif;
+            background: #f5f7f2; 
+            color: #333;
         }
 
-        /* Navbar */
         .navbar {
-            background: #1e1e1e !important;
+            background: linear-gradient(90deg, #556B2F, #6B8E23) !important;
         }
 
         .navbar-brand {
             color: white !important;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 20px;
         }
 
         .nav-link {
-            color: #ccc !important;
+            color: #e8f0dc !important;
             margin-left: 10px;
         }
 
             .nav-link:hover {
-                color: white !important;
+                color: #ffffff !important;
             }
 
             .nav-link.admin {
-                color: #ff4d4d !important;
+                color: #fff176 !important;
             }
 
-        /* Content */
         .body-content {
-            padding: 20px;
-            margin-top: 20px;
+            padding: 30px;
         }
 
-        /* Footer */
         footer {
             margin-top: 40px;
             text-align: center;
-            color: #777;
+            color: #666;
+        }
+
+        hr {
+            border-color: #ddd;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ✅ NAVBAR -->
     <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container">
 
-            <!-- Logo / Title -->
-            @Html.ActionLink("🎓 Online Exam", "Index", "Home", null, new { @class = "navbar-brand" })
+            @Html.ActionLink("Online Exam", "Index", "Home", null, new { @class = "navbar-brand" })
 
-            <!-- Toggle (mobile) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarNav">
 
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        @Html.ActionLink("🏠 Home", "Index", "Home", null, new { @class = "nav-link" })
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
 
                     <li class="nav-item">
-                        @Html.ActionLink("👤 User Login", "Login", "Account", null, new { @class = "nav-link" })
+                        @Html.ActionLink("User Login", "Login", "Account", null, new { @class = "nav-link" })
                     </li>
 
                     <li class="nav-item">
-                        @Html.ActionLink("📝 Register", "Register", "Account", null, new { @class = "nav-link" })
+                        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link" })
                     </li>
 
                     <li class="nav-item">
-                        @Html.ActionLink("🛠 Admin Login", "Login", "Admin", null, new { @class = "nav-link admin" })
+                        @Html.ActionLink("Admin Login", "Login", "Admin", null, new { @class = "nav-link admin" })
                     </li>
 
                 </ul>
@@ -95,8 +92,9 @@
         </div>
     </nav>
 
-    <!-- ✅ MAIN CONTENT -->
+
     <div class="container body-content">
+
         @RenderBody()
 
         <hr />
@@ -104,6 +102,7 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - Online Exam System</p>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

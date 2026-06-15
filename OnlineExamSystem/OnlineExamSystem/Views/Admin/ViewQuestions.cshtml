@@ -1,10 +1,86 @@
 ﻿@model IEnumerable<OnlineExamSystem.Models.Question>
 
 @{
+    ViewBag.Title = "View Questions";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2 class="title">📄 Questions List</h2>
+<style>
+    .title {
+        font-size: 24px;
+        color: #556B2F;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .card {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        background: linear-gradient(90deg, #556B2F, #6B8E23);
+        color: white;
+    }
+
+    th {
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        color: #444;
+    }
+
+    tr:hover {
+        background: #f4f8ee;
+    }
+
+    .badge {
+        background: #e8f0dc;
+        color: #556B2F;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .delete-btn {
+        background: #e53935;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 13px;
+    }
+
+        .delete-btn:hover {
+            background: #c62828;
+        }
+
+    .no-data {
+        text-align: center;
+        padding: 20px;
+        color: #888;
+    }
+</style>
+
+<h2 class="title">Questions List</h2>
 
 <div class="card">
 
@@ -13,30 +89,46 @@
             <tr>
                 <th>ID</th>
                 <th>Question</th>
-                <th>Action</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach (var q in Model)
+            @if (!Model.Any())
             {
                 <tr>
-                    <td>
-                        <span class="id-badge">@q.QuestionId</span>
-                    </td>
-
-                    <td>@q.QuestionText</td>
-
-                    <td>
-                        <a href="/Admin/DeleteQuestion/@q.QuestionId"
-                           class="delete-btn"
-                           onclick="return confirm('Are you sure you want to delete this question?');">
-                            🗑 Delete
-                        </a>
+                    <td colspan="3" class="no-data">
+                        No questions available 
                     </td>
                 </tr>
             }
+            else
+            {
+                foreach (var q in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="badge">@q.QuestionId</span>
+                        </td>
+
+                        <td>@q.QuestionText</td>
+
+                        <td>
+                            <div class="actions">
+
+                                <a href="/Admin/DeleteQuestion/@q.QuestionId"
+                                   class="delete-btn"
+                                   onclick="return confirm('Are you sure you want to delete this question?');">
+                                    Delete
+                                </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
+
     </table>
 
 </div>

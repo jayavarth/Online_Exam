@@ -1,31 +1,23 @@
 ﻿@model IEnumerable<OnlineExamSystem.Models.User>
 
 @{
-    Layout = null;
+    ViewBag.Title = "View Users";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <style>
-    body {
-        background: #121212;
-        font-family: 'Segoe UI', sans-serif;
-        color: white;
-    }
-
-    .page-container {
-        padding: 25px;
-    }
-
     .title {
         font-size: 24px;
-        font-weight: 600;
+        color: #556B2F;
         margin-bottom: 20px;
+        font-weight: 600;
     }
 
     .card {
-        background: #1e1e1e;
-        border-radius: 12px;
+        background: white;
+        border-radius: 16px;
         padding: 20px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
     table {
@@ -33,8 +25,12 @@
         border-collapse: collapse;
     }
 
+    thead {
+        background: linear-gradient(90deg, #556B2F, #6B8E23);
+        color: white;
+    }
+
     th {
-        background: #5b2be0;
         padding: 12px;
         text-align: left;
         font-size: 14px;
@@ -42,51 +38,64 @@
 
     td {
         padding: 12px;
-        border-bottom: 1px solid #333;
-        font-size: 14px;
+        border-bottom: 1px solid #eee;
+        color: #444;
     }
 
     tr:hover {
-        background: #2a2a2a;
+        background: #f4f8ee;
     }
 
-    /* User badge */
     .user-name {
         font-weight: 600;
-        color: #fff;
+        color: #2f3e1f;
     }
 
     .email {
-        color: #bbb;
         font-size: 13px;
+        color: #777;
     }
-
     .mobile {
-        background: #333;
+        background: #e8f0dc;
+        color: #556B2F;
         padding: 5px 10px;
         border-radius: 6px;
         font-size: 12px;
         display: inline-block;
     }
+
+    .no-data {
+        text-align: center;
+        padding: 20px;
+        color: #888;
+    }
 </style>
 
-<div class="page-container">
+<h2 class="title"> Registered Users</h2>
 
-    <div class="title">👥 Registered Users</div>
+<div class="card">
 
-    <div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
 
-        <table>
-            <thead>
+        <tbody>
+            @if (!Model.Any())
+            {
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
+                    <td colspan="3" class="no-data">
+                        No users found ❌
+                    </td>
                 </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var u in Model)
+            }
+            else
+            {
+                foreach (var u in Model)
                 {
                     <tr>
                         <td>
@@ -102,118 +111,9 @@
                         </td>
                     </tr>
                 }
-            </tbody>
-        </table>
+            }
+        </tbody>
 
-    </div>
-
-</div>
-
-@{
-    Layout = null;
-}
-
-<style>
-    body {
-        background: #121212;
-        font-family: 'Segoe UI', sans-serif;
-        color: white;
-    }
-
-    .page-container {
-        padding: 25px;
-    }
-
-    .title {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 20px;
-    }
-
-    .card {
-        background: #1e1e1e;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th {
-        background: #5b2be0;
-        padding: 12px;
-        text-align: left;
-        font-size: 14px;
-    }
-
-    td {
-        padding: 12px;
-        border-bottom: 1px solid #333;
-        font-size: 14px;
-    }
-
-    tr:hover {
-        background: #2a2a2a;
-    }
-
-    /* User badge */
-    .user-name {
-        font-weight: 600;
-        color: #fff;
-    }
-
-    .email {
-        color: #bbb;
-        font-size: 13px;
-    }
-
-    .mobile {
-        background: #333;
-        padding: 5px 10px;
-        border-radius: 6px;
-        font-size: 12px;
-        display: inline-block;
-    }
-</style>
-
-<div class="page-container">
-
-    <div class="title">👥 Registered Users</div>
-
-    <div class="card">
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var u in Model)
-                {
-                    <tr>
-                        <td>
-                            <span class="user-name">@u.FullName</span>
-                        </td>
-
-                        <td>
-                            <span class="email">@u.Email</span>
-                        </td>
-
-                        <td>
-                            <span class="mobile">@u.Mobile</span>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-    </div>
+    </table>
 
 </div>
