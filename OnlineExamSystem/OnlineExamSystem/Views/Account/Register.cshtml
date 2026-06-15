@@ -221,10 +221,16 @@
 
                     <div class="form-group">
                         <label>Country</label>
-                        @Html.DropDownListFor(m => m.CountryId,
-                            (ViewBag.Countries as SelectList),
-                            "--Select Country--",
-                            new { id = "CountryId" })
+                        @*@Html.DropDownListFor(m => m.CountryId,
+        (ViewBag.Countries as SelectList),
+        "--Select Country--",
+        new { id = "CountryId" })*@
+                        @Html.DropDownListFor(
+    m => m.CountryId,
+    ViewBag.Countries as IEnumerable<SelectListItem>,
+    "--Select Country--",
+    new { id = "CountryId", @class = "form-control" }
+)
                     </div>
 
                     <div class="form-group">
@@ -249,9 +255,15 @@
 
                     <div class="form-group">
                         <label>Qualification</label>
-                        @Html.DropDownListFor(m => m.QualificationId,
-                            (ViewBag.Qualifications as SelectList),
-                            "--Select Qualification--")
+                        @*@Html.DropDownListFor(m => m.QualificationId,
+        (ViewBag.Qualifications as SelectList),
+        "--Select Qualification--")*@
+                        @Html.DropDownListFor(
+    m => m.QualificationId,
+    ViewBag.Qualifications as IEnumerable<SelectListItem>,
+    "--Select Qualification--",
+    new { @class = "form-control" }
+)
                     </div>
 
                     <div class="form-group">

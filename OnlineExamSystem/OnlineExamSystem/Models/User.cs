@@ -31,10 +31,10 @@ namespace OnlineExamSystem.Models
             "Password must contain minimum 12 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character")]
         public string Password { get; set; }
 
-        [Required]
+        //[Required]
        
-        [Compare("Password",
-            ErrorMessage = "Passwords do not match")]
+        //[Compare("Password",
+        //    ErrorMessage = "Passwords do not match")]
         [NotMapped]
         public string ConfirmPassword { get; set; }
 
@@ -43,23 +43,11 @@ namespace OnlineExamSystem.Models
             ErrorMessage = "Enter valid 10 digit mobile number")]
         public string Mobile { get; set; }
 
-    //    //[Required]
-    //    //public string City { get; set; }
-    //    [Required(ErrorMessage = "City is required")]
-    //    [RegularExpression(@"^[a-zA-Z ]+$",
-    //ErrorMessage = "City should contain only letters")]
-    //    public string City { get; set; }
-
-    //    [Required(ErrorMessage = "State is required")]
-    //    [RegularExpression(@"^[a-zA-Z ]+$",
-    //ErrorMessage = "State should contain only letters")]
-    //    public string State { get; set; }
-
         [Required]
         public DateTime DOB { get; set; }
 
-        //[Required]
-        [Required]//public string Qualification { get; set; }
+       
+        [Required]
         public int CountryId { get; set; }
         [Required]
         public int StateId { get; set; }
@@ -70,6 +58,8 @@ namespace OnlineExamSystem.Models
         [Required]
         [Range(2000, 2100)]
         public int YearOfCompletion { get; set; }
-        
+        public string OTP { get; set; }
+
+        public DateTime? OTPExpiry { get; set; }
     }
 }

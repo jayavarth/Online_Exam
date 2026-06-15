@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using OfficeOpenXml;
 using OnlineExamSystem.DAL;
 using OnlineExamSystem.Models;
-using OfficeOpenXml;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Web;
+using System.Web.Mvc;
+using static System.Net.WebRequestMethods;
 
 namespace OnlineExamSystem.Controllers
 {
@@ -16,17 +19,7 @@ namespace OnlineExamSystem.Controllers
 
         public ActionResult Login()
         { 
-        //{
-        //    Random random = new Random();
-
-        //    int captcha = random.Next(1000, 9999);
-
-        //    Session["AdminCaptcha"] = captcha;
-
-        //    ViewBag.Captcha = captcha;
-
-        //    return View();
-      
+        
             GenerateCaptcha();
             return View();
         
@@ -127,24 +120,75 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public ActionResult ForgotPassword(string email, string newPassword)
+        //{
+        //    var admin = db.Admins.FirstOrDefault(x => x.Email == email);
+
+        //    if (admin != null)
+        //    {
+        //        admin.Password = newPassword;
+        //        db.SaveChanges();
+
+        //        ViewBag.Message = "Password Updated";
+        //    }
+        //    else
+        //    {
+        //        ViewBag.Message = "Admin Not Found";
+        //    }
+
+        //    return View();
+        //}
         [HttpPost]
-        public ActionResult ForgotPassword(string email, string newPassword)
+        public ActionResult ForgotPassword(string email)
         {
-            var admin = db.Admins.FirstOrDefault(x => x.Email == email);
+            var user =
+                db.Users.FirstOrDefault(x => x.Email == email);
 
-            if (admin != null)
+            if (user == null)
             {
-                admin.Password = newPassword;
-                db.SaveChanges();
-
-                ViewBag.Message = "Password Updated";
-            }
-            else
-            {
-                ViewBag.Message = "Admin Not Found";
+                ViewBag.Message = "Email Not Found";
+                return View();
             }
 
-            return View();
+            Random r = new Random();
+
+            string otp =
+                r.Next(100000, 999999).ToString();
+
+            user.OTP = otp;
+            user.OTPExpiry = DateTime.Now.AddMinutes(5);
+
+            db.SaveChanges();
+
+            MailMessage mail =
+                new MailMessage();
+
+            mail.From =
+                new MailAddress("vilvapriya27@gmail.com");
+
+            mail.To.Add(user.Email);
+
+            mail.Subject = "Password Reset OTP";
+
+            mail.Body =
+                "Your OTP is : " + otp;
+
+            SmtpClient smtp =
+                new SmtpClient("smtp.gmail.com", 587);
+
+            smtp.Credentials =
+                new NetworkCredential(
+                    "vilvapriya27@gmail.com",
+                    "nmkg holy ompn jkkr");
+
+            smtp.EnableSsl = true;
+
+            smtp.Send(mail);
+
+            Session["ResetEmail"] = email;
+
+            return RedirectToAction("VerifyOTP");
         }
         public ActionResult UploadQuestions()
         {
@@ -215,6 +259,79 @@ namespace OnlineExamSystem.Controllers
             Session["AdminCaptcha"] = captcha;
 
             ViewBag.Captcha = captcha;
+        }
+        public ActionResult VerifyOTP()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult VerifyOTP(string otp)
+        {
+            string email =
+                Session["ResetEmail"].ToString();
+
+            var user =
+                db.Users.FirstOrDefault(x => x.Email == email);
+
+            if (user == null)
+            {
+                return RedirectToAction("ForgotPassword");
+            }
+
+            if (user.OTP != otp)
+            {
+                ViewBag.Message = "Invalid OTP";
+                return View();
+            }
+
+            if (user.OTPExpiry < DateTime.Now)
+            {
+                ViewBag.Message = "OTP Expired";
+                return View();
+            }
+
+            return RedirectToAction("ResetPassword");
+        }
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(
+            string newPassword,
+            string confirmPassword)
+        {
+            if (newPassword != confirmPassword)
+            {
+                ViewBag.Message =
+                    "Passwords do not match";
+
+                return View();
+            }
+
+            string email =
+                Session["ResetEmail"].ToString();
+
+            //var user =
+            //    db.Users.FirstOrDefault(x => x.Email == email);
+            var admin =
+    db.Admins.FirstOrDefault(x => x.Email == email);
+            //user.Password = newPassword;
+
+            //user.OTP = null;
+            //user.OTPExpiry = null;
+            admin.Password = newPassword;
+
+            admin.OTP = null;
+            admin.OTPExpiry = null;
+
+            db.SaveChanges();
+
+            //db.SaveChanges();
+
+            return RedirectToAction("Login");
         }
     }
 }
