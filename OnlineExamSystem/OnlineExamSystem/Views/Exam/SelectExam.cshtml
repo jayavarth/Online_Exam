@@ -9,7 +9,7 @@
         background-color: #f8f8f8;
     }
 
-    
+
     table, td {
         color: black;
     }
@@ -48,7 +48,16 @@
 </style>
 
 <h2>Select Exam</h2>
-
+@if (TempData["Message"] != null)
+{
+    <div style="background:#ffebee;
+                color:#c62828;
+                padding:10px;
+                margin-bottom:15px;
+                border-radius:5px;">
+        @TempData["Message"]
+    </div>
+}
 <table>
     <tr>
         <th>Exam</th>

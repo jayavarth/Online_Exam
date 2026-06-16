@@ -31,10 +31,22 @@ namespace OnlineExamSystem.Controllers
             bool allowed =
                 CanAttendLevel(userId, id);
 
+            //if (!allowed)
+            //{
+            //    TempData["Message"] =
+            //        "You must pass previous level first.";
+
+            //    return RedirectToAction("SelectExam");
+            //}
             if (!allowed)
             {
+                var currentExam = db.Exams.Find(id);
+
                 TempData["Message"] =
-                    "You must pass previous level first.";
+                    "To access " + currentExam.ExamName +
+                    " Level " + currentExam.LevelNo +
+                    ", you must first clear Level " +
+                    (currentExam.LevelNo - 1) + ".";
 
                 return RedirectToAction("SelectExam");
             }
@@ -137,10 +149,14 @@ namespace OnlineExamSystem.Controllers
             if (currentExam.LevelNo == 1)
                 return true;
 
-            var previousExam =
-                db.Exams.FirstOrDefault(x =>
-                    x.LevelNo == currentExam.LevelNo - 1);
+            //var previousExam =
+            //    db.Exams.FirstOrDefault(x =>
+            //        x.LevelNo == currentExam.LevelNo - 1);
 
+            var previousExam =
+    db.Exams.FirstOrDefault(x =>
+        x.ExamName == currentExam.ExamName &&
+        x.LevelNo == currentExam.LevelNo - 1);
             if (previousExam == null)
                 return false;
 
