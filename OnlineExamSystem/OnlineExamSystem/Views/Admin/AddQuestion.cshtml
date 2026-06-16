@@ -4,13 +4,22 @@
 
 <h2 style="color:#556B2F;">Add Questions</h2>
 
-<select id="examId" class="dropdown">
+@*<select id="examId" class="dropdown">
     <option value="">-- Select Exam --</option>
     <option value="1">C# Level 1</option>
     <option value="2">C# Level 2</option>
     <option value="3">C# Level 3</option>
-</select>
+</select>*@
+<select id="examId" class="dropdown">
+    <option value="">-- Select Exam --</option>
 
+    @foreach (var exam in ViewBag.Exams)
+    {
+        <option value="@exam.ExamId">
+            @exam.ExamName - Level @exam.LevelNo
+        </option>
+    }
+</select>
 <style>
     .dropdown {
         padding: 10px;
