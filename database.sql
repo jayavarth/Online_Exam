@@ -43,12 +43,7 @@ CREATE TABLE Admins
     Email NVARCHAR(100),
     Password NVARCHAR(100)
 );
-INSERT INTO Admins
-VALUES
-(
-'admin@gmail.com',
-'admin123'
-);
+
 
 CREATE TABLE Exams
 (
@@ -534,8 +529,17 @@ ADD OTPExpiry DATETIME;
 
 ALTER TABLE admins
 ADD OTP NVARCHAR(10);
-
+ALTER TABLE Users
+ADD IsEmailVerified BIT DEFAULT 0;
 ALTER TABLE admins
 ADD OTPExpiry DATETIME;
-
+select * from Users
 select * from admins
+INSERT INTO Admins
+VALUES
+(
+'infiniteglobaluniversity@gmail.com',
+'Admin@123',null,null
+);
+
+select * from exams
