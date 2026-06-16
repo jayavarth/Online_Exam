@@ -1,24 +1,8 @@
 
---GO
---USE OnlineExamDB;
---USE master;
---ALTER DATABASE ONlineExamDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
---DROP DATABASE ONlineExamDB;
-
---GO
---CREATE USER [INFICS\vilvapriyam] FOR LOGIN [INFICS\vilvapriyam];
---ALTER ROLE db_owner ADD MEMBER [INFICS\vilvapriyam];
 
 CREATE DATABASE OnlineExamDB;
 GO
 USE OnlineExamDB;
---USE master;
---ALTER DATABASE ONlineExamDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
---DROP DATABASE ONlineExamDB;
-
---GO
---CREATE USER [INFICS\vilvapriyam] FOR LOGIN [INFICS\vilvapriyam];
---ALTER ROLE db_owner ADD MEMBER [INFICS\vilvapriyam];
 
 
 
@@ -542,4 +526,39 @@ VALUES
 'Admin@123',null,null
 );
 
-select * from exams
+
+
+INSERT INTO Exams
+(
+    ExamName,
+    LevelNo,
+    TotalQuestions,
+    PassMarks,
+    DurationMinutes
+)
+VALUES
+('python',1,10,6,30);
+
+INSERT INTO Exams
+(
+    ExamName,
+    LevelNo,
+    TotalQuestions,
+    PassMarks,
+    DurationMinutes
+)
+VALUES
+('python',2,10,6,30);
+
+INSERT INTO Exams
+(
+    ExamName,
+    LevelNo,
+    TotalQuestions,
+    PassMarks,
+    DurationMinutes
+)
+VALUES
+('python',3,10,6,30);
+
+select * from users
