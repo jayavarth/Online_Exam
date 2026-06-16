@@ -4,50 +4,116 @@
 @model OnlineExamSystem.Models.Exam
 
 <style>
+    /* ================= HEADER FIX ================= */
+
+    /* remove white navbar box */
+    .navbar .container {
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    /* full green header */
+    .navbar {
+        background: linear-gradient(90deg, #556B2F, #6B8E23) !important;
+        padding: 12px 0;
+    }
+
+        /* navbar text */
+        .navbar a,
+        .navbar-brand {
+            color: white !important;
+            font-weight: 500;
+        }
+
+            /* hover */
+            .navbar a:hover {
+                color: #e6f2c8 !important;
+            }
+
+    /* remove click highlight */
+    .nav-link:focus,
+    .nav-link:active {
+        background: transparent !important;
+        color: #e6f2c8 !important;
+    }
+
+    /* ================= PAGE BACKGROUND ================= */
+
     body {
-        font-family: Arial;
-        background-color: #f8f8f8;
+        font-family: 'Segoe UI', Arial;
+        background: #f4f4f4;
     }
 
-    .container, .container p {
-        color: black;
+    /* ================= MAIN CONTAINER ================= */
+
+    .exam-wrapper {
+        text-align: center;
+        margin-top: 40px;
     }
 
-    .container {
-        width: 50%;
-        margin: 40px auto;
+    /* ================= TITLE ================= */
+
+    .exam-title {
+        font-size: 32px;
+        color: #556B2F;
+        margin-bottom: 20px;
+    }
+
+    /* ================= CARD ================= */
+
+    .exam-card {
+        width: 400px;
+        margin: auto;
         padding: 25px;
         background: white;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px gray;
-        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
 
-    h2 {
-        color: #556B2F;
-    }
+        /* info text */
+        .exam-card p {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #333;
+        }
 
-    .btn {
+    /* ================= BUTTON ================= */
+
+    .btn-start {
         display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
+        margin-top: 20px;
+        padding: 10px 25px;
         background: linear-gradient(180deg, #556B2F, #6B8E23);
         color: white;
+        border-radius: 6px;
         text-decoration: none;
-        border-radius: 5px;
+        font-weight: 500;
+        transition: 0.3s;
     }
+
+        .btn-start:hover {
+            background: #4c6227;
+        }
 </style>
 
-<div class="container">
-    <h2>Exam Instructions</h2>
 
-    <p>Total Questions: @Model.TotalQuestions</p>
-    <p>Pass Marks: @Model.PassMarks</p>
-    <p>Duration: @Model.DurationMinutes Minutes</p>
+<div class="exam-wrapper">
 
-    <br />
+    <div class="exam-title">
+        Exam Instructions
+    </div>
 
-    <a href="/Exam/StartExam/@Model.ExamId" class="btn">
-        Start Exam
-    </a>
+    <div class="exam-card">
+
+        <p><strong>Total Questions:</strong> @Model.TotalQuestions</p>
+        <p><strong>Pass Marks:</strong> @Model.PassMarks</p>
+        <p><strong>Duration:</strong> @Model.DurationMinutes Minutes</p>
+
+        <a href="/Exam/StartExam/@Model.ExamId" class="btn-start">
+            Start Exam
+        </a>
+
+    </div>
+
 </div>
