@@ -84,26 +84,18 @@
                 @Html.ActionLink("Upload Excel", "UploadQuestions", "Admin")
                 @Html.ActionLink("View Users", "ViewUsers", "Admin")
                 @Html.ActionLink("View Results", "ViewResults", "Admin")
+                <a href="/Admin/Login" class="logout">Logout</a>
             </div>
         </div>
 
         <div class="main">
-
-            <div class="topbar">
-                <div class="title">
-                    @ViewBag.Title
-                </div>
-
-                <a href="/Admin/Login" class="logout">Logout</a>
-            </div>
-
             @RenderBody()
-
         </div>
+
 
     </div>
 
- 
+
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
     @RenderSection("scripts", required: false)

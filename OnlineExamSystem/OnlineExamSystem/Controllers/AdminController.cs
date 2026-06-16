@@ -18,14 +18,14 @@ namespace OnlineExamSystem.Controllers
         ExamDbContext db = new ExamDbContext();
 
         public ActionResult Login()
-        { 
-        
+        {
+
             GenerateCaptcha();
             return View();
-        
+
         }
 
-        
+
         [HttpPost]
         public ActionResult Login(
         string email,
@@ -73,8 +73,6 @@ namespace OnlineExamSystem.Controllers
 
         public ActionResult AddQuestion()
         {
-            ViewBag.Exams = db.Exams.ToList();
-
             return View();
         }
 
@@ -89,9 +87,18 @@ namespace OnlineExamSystem.Controllers
 
             return View();
         }
-        public ActionResult ViewQuestions()
+        public ActionResult ViewQuestions(int? examId)
         {
+            ViewBag.Exams = db.Exams.ToList();
+
             var questions = db.Questions.ToList();
+
+            if (examId.HasValue)
+            {
+                questions = questions
+                    .Where(q => q.ExamId == examId.Value)
+                    .ToList();
+            }
 
             return View(questions);
         }
@@ -122,6 +129,53 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public ActionResult ForgotPassword(string email)
+        //{
+
+        //    var admin =
+        //        db.Admins.FirstOrDefault(x => x.Email == email);
+
+        //    if (admin == null)
+        //    {
+        //        ViewBag.Message = "Email Not Found";
+        //        return View();
+        //    }
+
+        //    Random r = new Random();
+
+        //    string otp = r.Next(100000, 999999).ToString();
+
+        //    admin.OTP = otp;
+        //    admin.OTPExpiry = DateTime.Now.AddMinutes(5);
+
+        //    db.SaveChanges();
+
+        //    MailMessage mail = new MailMessage();
+
+        //    mail.From = new MailAddress("vilvapriya27@gmail.com");
+
+        //    mail.To.Add(admin.Email);
+
+        //    mail.Subject = "Password Reset OTP";
+
+        //    mail.Body = "Your OTP is : " + otp;
+
+        //    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+
+        //    smtp.Credentials =
+        //        new NetworkCredential(
+        //            "vilvapriya27@gmail.com",
+        //            "osopddmzkdbdomri");
+
+        //    smtp.EnableSsl = true;
+
+        //    smtp.Send(mail);
+
+        //    Session["ResetEmail"] = email;
+
+        //    return RedirectToAction("VerifyOTP");
+        //}
         [HttpPost]
         public ActionResult ForgotPassword(string email)
         {
@@ -259,7 +313,7 @@ namespace OnlineExamSystem.Controllers
             {
                 return RedirectToAction("ForgotPassword");
             }
-                            
+
             if (adminUser.OTP != otp)
             {
                 ViewBag.Message = "Invalid OTP";
@@ -279,38 +333,78 @@ namespace OnlineExamSystem.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult SaveQuestions(List<Question> questions)
+        public JsonResult SaveQuestions(List<Question> questions)
         {
             try
             {
-                if (questions == null || questions.Count == 0)
+                if (questions == null)
                 {
-                    return Json(new { success = false, message = "No questions received" });
+                    return Json(new { success = false, message = "Questions NULL" });
+                }
+
+                if (questions.Count == 0)
+                {
+                    return Json(new { success = false, message = "No data received" });
                 }
 
                 foreach (var q in questions)
                 {
-                    if (string.IsNullOrEmpty(q.QuestionText) || string.IsNullOrEmpty(q.CorrectAnswer))
-                    {
-                        return Json(new { success = false, message = "Invalid question data" });
-                    }
-
                     db.Questions.Add(q);
                 }
 
                 db.SaveChanges();
 
-                return Json(new { success = true, message = "Questions saved successfully" });
+                return Json(new { success = true });
             }
             catch (Exception ex)
             {
-                return Json(new
-                {
-                    success = false,
-                    message = "Error: " + ex.InnerException?.Message ?? ex.Message
-                });
+                return Json(new { success = false, message = ex.Message });
             }
+        }
+
+        [HttpPost]
+        public JsonResult AddExam(Exam model)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(model.ExamName) || model.LevelNo == 0)
+                {
+                    return Json(new { success = false, message = "Invalid data" });
+                }
+
+                var exists = db.Exams.Any(e =>
+                    e.ExamName == model.ExamName &&
+                    e.LevelNo == model.LevelNo);
+
+                if (exists)
+                {
+                    return Json(new { success = false, message = "Exam already exists" });
+                }
+
+                db.Exams.Add(model);
+                db.SaveChanges();
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetExams()
+        {
+            var exams = db.Exams
+                .Select(e => new
+                {
+                    e.ExamId,
+                    e.ExamName,
+                    e.LevelNo
+                })
+                .ToList();
+
+            return Json(exams, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -348,7 +442,5 @@ namespace OnlineExamSystem.Controllers
 
             return RedirectToAction("Login");
         }
-
-
     }
 }

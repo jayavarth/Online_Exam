@@ -1,66 +1,66 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\",
+  "WorkspaceRootPath": "C:\\Online_Exam\\OnlineExamSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\exam\\instructions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\instructions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|c:\\sql_github_class\\online_exam\\onlineexamsystem\\onlineexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\uploadquestions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\uploadquestions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\exam\\startexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\startexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\exam\\selectexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\selectexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\exam\\myresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\myresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\viewquestions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\viewquestions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\viewquestions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\viewresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\viewresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\viewresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\viewusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\viewusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\addquestion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\addquestion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\addquestion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\addquestion.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|c:\\online_exam\\onlineexamsystem\\onlineexamsystem\\views\\exam\\instructions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\instructions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\uploadquestions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\uploadquestions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\exam\\startexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\startexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\exam\\selectexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\selectexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\exam\\myresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\exam\\myresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|C:\\Online_Exam\\OnlineExamSystem\\onlineexamsystem\\views\\admin\\viewusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{095FA278-3B2B-47CE-A5D1-B679A39E00FC}|OnlineExamSystem\\OnlineExamSystem.csproj|solutionrelative:onlineexamsystem\\views\\admin\\viewusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,189 +70,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{f4e46f1e-cf83-40aa-b568-a627394bc994}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "StartExam.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AddQuestion.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAUwAkBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-16T04:35:24.606Z"
+              "WhenOpened": "2026-06-15T04:43:13.089Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MyResults.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ViewQuestions.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAUwKgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-16T04:35:18.883Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T04:17:35.227Z"
+              "WhenOpened": "2026-06-15T05:28:41.955Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UploadQuestions.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T05:34:45.993Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ViewResults.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T05:33:37.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "OnlineExamSystem\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAtwCEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-15T05:11:19.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Web.config",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Web.config",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Web.config",
-              "RelativeToolTip": "OnlineExamSystem\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-06-15T04:26:00.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AddQuestion.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\AddQuestion.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T04:43:13.089Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ViewUsers.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T05:31:37.179Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T04:10:37.848Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\AdminLayout.cshtml",
               "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Shared\\AdminLayout.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\AdminLayout.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\AdminLayout.cshtml",
               "RelativeToolTip": "OnlineExamSystem\\Views\\Shared\\AdminLayout.cshtml",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAYwGcAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T05:06:13.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ViewQuestions.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\ViewQuestions.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-15T05:28:41.955Z"
+              "WhenOpened": "2026-06-15T05:06:13.024Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "SelectExam.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
-              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
-              "RelativeToolTip": "OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-14T05:41:24.287Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Instructions.cshtml",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\Instructions.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\Instructions.cshtml",
               "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Exam\\Instructions.cshtml",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\Instructions.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\Instructions.cshtml",
               "RelativeToolTip": "OnlineExamSystem\\Views\\Exam\\Instructions.cshtml",
               "ViewState": "AgIAAG8AAAAAAAAAAAAgwHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -261,16 +134,140 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Web.config",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Web.config",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Web.config",
+              "RelativeToolTip": "OnlineExamSystem\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-06-15T04:26:00.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "OnlineExamSystem\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAtwCsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T05:11:19.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ViewResults.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\ViewResults.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T05:33:37.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UploadQuestions.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\UploadQuestions.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T05:34:45.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAIBZwGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T04:17:35.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MyResults.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Exam\\MyResults.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-16T04:35:18.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StartExam.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Exam\\StartExam.cshtml",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-16T04:35:24.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ViewUsers.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Admin\\ViewUsers.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T05:31:37.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAEBVwAoAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T04:10:37.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SelectExam.cshtml",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
+              "RelativeDocumentMoniker": "OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
+              "RelativeToolTip": "OnlineExamSystem\\Views\\Exam\\SelectExam.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-14T05:41:24.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "OnlineExamSystem\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\sql_github_class\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Online_Exam\\OnlineExamSystem\\OnlineExamSystem\\Controllers\\AccountController.cs",
               "RelativeToolTip": "OnlineExamSystem\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAlwEQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T05:10:59.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T05:10:59.869Z"
             }
           ]
         }

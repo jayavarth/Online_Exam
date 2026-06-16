@@ -4,28 +4,35 @@
 
 <h2 style="color:#556B2F;">Add Questions</h2>
 
-@*<select id="examId" class="dropdown">
-    <option value="">-- Select Exam --</option>
-    <option value="1">C# Level 1</option>
-    <option value="2">C# Level 2</option>
-    <option value="3">C# Level 3</option>
-</select>*@
+<!-- ✅ ADD EXAM -->
+<h3>Add Exam</h3>
+
+<input type="text" id="examName" placeholder="Enter Subject (C#, Java, etc)" class="dropdown" />
+
+<select id="levelNo" class="dropdown">
+    <option value="">-- Select Level --</option>
+    <option value="1">Level 1</option>
+    <option value="2">Level 2</option>
+    <option value="3">Level 3</option>
+</select>
+
+<button type="button" id="addExamBtn" class="btn">+ Add Exam</button>
+
+<hr />
+
+<!-- ✅ EXAM DROPDOWN -->
 <select id="examId" class="dropdown">
     <option value="">-- Select Exam --</option>
-
-    @foreach (var exam in ViewBag.Exams)
-    {
-        <option value="@exam.ExamId">
-            @exam.ExamName - Level @exam.LevelNo
-        </option>
-    }
 </select>
+
 <style>
     .dropdown {
         padding: 10px;
         border-radius: 8px;
         border: 1px solid #ccc;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        width: 250px;
+        display: block;
     }
 
     .question-card {
@@ -33,59 +40,40 @@
         padding: 20px;
         border-radius: 12px;
         margin-bottom: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         position: relative;
     }
 
-        .question-card input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            border: 1px solid #ddd;
-        }
-
     .option {
         display: flex;
-        align-items: center;
         margin-bottom: 8px;
     }
-
-        .option input[type="radio"] {
-            margin-right: 10px;
-        }
 
     .delete-btn {
         position: absolute;
         top: 10px;
         right: 10px;
-        background: #e53935;
+        background: red;
         color: white;
         border: none;
-        padding: 5px 10px;
-        border-radius: 6px;
         cursor: pointer;
     }
 
     .btn {
         background: #556B2F;
         color: white;
-        padding: 10px 18px;
+        padding: 10px;
         border-radius: 8px;
         border: none;
         margin-top: 10px;
         cursor: pointer;
     }
-
-        .btn:hover {
-            background: #3e4f22;
-        }
 </style>
 
+<!-- ✅ QUESTIONS -->
 <div id="questions-container">
-
     <div class="question-card">
-        <button class="delete-btn">❌</button>
+        <button type="button" class="delete-btn">❌</button>
 
         <input type="text" class="question" placeholder="Enter question" />
 
@@ -109,116 +97,170 @@
             <input type="text" class="optD" placeholder="Option D">
         </div>
     </div>
-
 </div>
 
-<button id="addQuestion" class="btn">+ Add Question</button>
-<button id="submitBtn" class="btn">Submit</button>
+<button type="button" id="addQuestion" class="btn">+ Add Question</button>
+<button type="button" id="submitBtn" class="btn">Submit</button>
 
 @section scripts{
     <script>
-        $(document).ready(function () {
 
-            let questionCount = 1;
+let questionCount = 1;
 
-            $("#addQuestion").click(function () {
-                questionCount++;
+$(document).ready(function () {
 
-                let html = `
-            <div class="question-card">
-                <button class="delete-btn">❌</button>
+    loadExams();
 
-                <input type="text" class="question" placeholder="Enter question" />
+    // ✅ ADD EXAM
+    $("#addExamBtn").click(function () {
 
-                <div class="option">
-                    <input type="radio" name="q${questionCount}" value="A">
-                    <input type="text" class="optA" placeholder="Option A">
-                </div>
+        let examName = $("#examName").val();
+        let levelNo = $("#levelNo").val();
 
-                <div class="option">
-                    <input type="radio" name="q${questionCount}" value="B">
-                    <input type="text" class="optB" placeholder="Option B">
-                </div>
+        if (!examName || !levelNo) {
+            alert("Enter exam name and level!");
+            return;
+        }
 
-                <div class="option">
-                    <input type="radio" name="q${questionCount}" value="C">
-                    <input type="text" class="optC" placeholder="Option C">
-                </div>
-
-                <div class="option">
-                    <input type="radio" name="q${questionCount}" value="D">
-                    <input type="text" class="optD" placeholder="Option D">
-                </div>
-            </div>`;
-
-                $("#questions-container").append(html);
-            });
-
-            $(document).on("click", ".delete-btn", function () {
-                $(this).closest(".question-card").remove();
-            });
-
-            $("#submitBtn").click(function () {
-
-                let examId = $("#examId").val();
-
-                if (!examId) {
-                    alert("Please select exam!");
-                    return;
+        $.ajax({
+            url: '@Url.Action("AddExam","Admin")',
+            type: 'POST',
+            data: {
+                ExamName: examName,
+                LevelNo: levelNo,
+                TotalQuestions: 10,
+                PassMarks: 6,
+                DurationMinutes: 30
+            },
+            success: function (res) {
+                if (res.success) {
+                    alert("✅ Exam added");
+                    loadExams();
+                    $("#examName").val('');
+                    $("#levelNo").val('');
+                } else {
+                    alert(res.message);
                 }
+            }
+        });
 
-                let allQuestions = [];
-                let valid = true;
+    });
 
-                $(".question-card").each(function () {
+    // ✅ LOAD EXAMS
+    function loadExams() {
 
-                    let q = $(this);
+        $.get('@Url.Action("GetExams","Admin")', function (data) {
 
-                    let questionText = q.find(".question").val();
-                    let answer = q.find("input[type=radio]:checked").val();
+            $("#examId").empty();
+            $("#examId").append('<option value="">-- Select Exam --</option>');
 
-                    if (!questionText) {
-                        alert("Question cannot be empty!");
-                        valid = false;
-                        return false;
-                    }
-
-                    if (!answer) {
-                        alert("Select correct answer!");
-                        valid = false;
-                        return false;
-                    }
-
-                    allQuestions.push({
-                        ExamId: examId,
-                        QuestionText: questionText,
-                        OptionA: q.find(".optA").val(),
-                        OptionB: q.find(".optB").val(),
-                        OptionC: q.find(".optC").val(),
-                        OptionD: q.find(".optD").val(),
-                        CorrectAnswer: answer
-                    });
-
-                });
-
-                if (!valid) return;
-
-                $.ajax({
-                    url: '/Admin/SaveQuestions',
-                    type: 'POST',
-                    data: JSON.stringify(allQuestions),
-                    contentType: 'application/json; charset=utf-8',
-                    success: function () {
-                        alert("✅ Questions saved successfully!");
-                        location.reload();
-                    },
-                    error: function () {
-                        alert("❌ Error saving questions!");
-                    }
-                });
-
+            data.forEach(function (e) {
+                $("#examId").append(
+                    `<option value="${e.ExamId}">
+                        ${e.ExamName} Level ${e.LevelNo}
+                    </option>`
+                );
             });
 
         });
+    }
+
+    // ✅ ADD QUESTION
+    $("#addQuestion").click(function () {
+
+        questionCount++;
+
+        let html = `
+        <div class="question-card">
+            <button type="button" class="delete-btn">❌</button>
+
+            <input type="text" class="question" placeholder="Enter question" />
+
+            <div class="option">
+                <input type="radio" name="q${questionCount}" value="A">
+                <input type="text" class="optA" placeholder="Option A">
+            </div>
+
+            <div class="option">
+                <input type="radio" name="q${questionCount}" value="B">
+                <input type="text" class="optB" placeholder="Option B">
+            </div>
+
+            <div class="option">
+                <input type="radio" name="q${questionCount}" value="C">
+                <input type="text" class="optC" placeholder="Option C">
+            </div>
+
+            <div class="option">
+                <input type="radio" name="q${questionCount}" value="D">
+                <input type="text" class="optD" placeholder="Option D">
+            </div>
+        </div>`;
+
+        $("#questions-container").append(html);
+    });
+
+    // ✅ DELETE QUESTION
+    $(document).on("click", ".delete-btn", function () {
+        $(this).closest(".question-card").remove();
+    });
+
+    // ✅ SUBMIT QUESTIONS
+    $("#submitBtn").click(function () {
+
+        let examId = $("#examId").val();
+
+        if (!examId) {
+            alert("❌ Select exam!");
+            return;
+        }
+
+        let allQuestions = [];
+
+        $(".question-card").each(function () {
+
+            let q = $(this);
+
+            let questionText = q.find(".question").val();
+            let answer = q.find("input[type=radio]:checked").val();
+
+            if (!questionText || !answer) {
+                alert("❌ Fill all fields!");
+                return false;
+            }
+
+            allQuestions.push({
+                ExamId: parseInt(examId),
+                QuestionText: questionText,
+                OptionA: q.find(".optA").val(),
+                OptionB: q.find(".optB").val(),
+                OptionC: q.find(".optC").val(),
+                OptionD: q.find(".optD").val(),
+                CorrectAnswer: answer
+            });
+
+        });
+
+        console.log("Sending:", allQuestions);
+
+        $.ajax({
+            url: '@Url.Action("SaveQuestions","Admin")',
+            type: 'POST',
+            data: JSON.stringify(allQuestions),
+            contentType: 'application/json; charset=utf-8',
+            success: function (res) {
+                if (res.success) {
+                    alert("✅ Questions saved!");
+                    location.reload();
+                } else {
+                    alert(res.message);
+                }
+            }
+        });
+
+    });
+
+});
+
     </script>
 }

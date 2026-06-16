@@ -30,14 +30,12 @@
         color: white;
     }
 
-    th {
+    th, td {
         padding: 12px;
         text-align: left;
-        font-size: 14px;
     }
 
     td {
-        padding: 12px;
         border-bottom: 1px solid #eee;
         color: #444;
     }
@@ -66,7 +64,6 @@
         padding: 6px 12px;
         border-radius: 6px;
         text-decoration: none;
-        font-size: 13px;
     }
 
         .delete-btn:hover {
@@ -78,12 +75,53 @@
         padding: 20px;
         color: #888;
     }
+
+    .filter-bar {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .dropdown {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        background: #556B2F;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
 </style>
 
 <h2 class="title">Questions List</h2>
 
-<div class="card">
+<!-- ✅ FILTER FORM -->
+<form method="get" action="@Url.Action("ViewQuestions","Admin")">
+    <div class="filter-bar">
 
+        <select name="examId" class="dropdown">
+            <option value="">-- Select Exam --</option>
+
+            @foreach (var exam in ViewBag.Exams)
+            {
+                <option value="@exam.ExamId"
+                        @(Request["examId"] == exam.ExamId.ToString() ? "selected" : "")>
+                    @exam.ExamName Level @exam.LevelNo
+                </option>
+            }
+        </select>
+
+        <button type="submit" class="btn">Filter</button>
+
+    </div>
+</form>
+
+<div class="card">
     <table>
         <thead>
             <tr>
@@ -98,7 +136,7 @@
             {
                 <tr>
                     <td colspan="3" class="no-data">
-                        No questions available 
+                        No questions available
                     </td>
                 </tr>
             }
@@ -115,20 +153,17 @@
 
                         <td>
                             <div class="actions">
-
-                                <a href="/Admin/DeleteQuestion/@q.QuestionId"
+                                <a href="@Url.Action("DeleteQuestion","Admin", new { id = q.QuestionId })"
                                    class="delete-btn"
                                    onclick="return confirm('Are you sure you want to delete this question?');">
                                     Delete
                                 </a>
-
                             </div>
                         </td>
                     </tr>
                 }
             }
         </tbody>
-
     </table>
-
 </div>
+`
