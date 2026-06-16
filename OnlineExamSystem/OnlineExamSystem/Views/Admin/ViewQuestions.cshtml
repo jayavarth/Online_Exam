@@ -100,7 +100,6 @@
 
 <h2 class="title">Questions List</h2>
 
-<!-- ✅ FILTER FORM -->
 <form method="get" action="@Url.Action("ViewQuestions","Admin")">
     <div class="filter-bar">
 
@@ -136,7 +135,9 @@
             {
                 <tr>
                     <td colspan="3" class="no-data">
-                        No questions available
+                        @(Request["examId"] == null
+                ? "Please select an exam to view questions"
+                : "No questions available for selected exam")
                     </td>
                 </tr>
             }
@@ -166,4 +167,3 @@
         </tbody>
     </table>
 </div>
-`

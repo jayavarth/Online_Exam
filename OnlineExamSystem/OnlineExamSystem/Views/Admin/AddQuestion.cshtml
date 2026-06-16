@@ -4,7 +4,6 @@
 
 <h2 style="color:#556B2F;">Add Questions</h2>
 
-<!-- ✅ ADD EXAM -->
 <h3>Add Exam</h3>
 
 <input type="text" id="examName" placeholder="Enter Subject (C#, Java, etc)" class="dropdown" />
@@ -20,7 +19,6 @@
 
 <hr />
 
-<!-- ✅ EXAM DROPDOWN -->
 <select id="examId" class="dropdown">
     <option value="">-- Select Exam --</option>
 </select>
@@ -70,7 +68,6 @@
     }
 </style>
 
-<!-- ✅ QUESTIONS -->
 <div id="questions-container">
     <div class="question-card">
         <button type="button" class="delete-btn">❌</button>
@@ -111,7 +108,6 @@ $(document).ready(function () {
 
     loadExams();
 
-    // ✅ ADD EXAM
     $("#addExamBtn").click(function () {
 
         let examName = $("#examName").val();
@@ -146,7 +142,6 @@ $(document).ready(function () {
 
     });
 
-    // ✅ LOAD EXAMS
     function loadExams() {
 
         $.get('@Url.Action("GetExams","Admin")', function (data) {
@@ -165,7 +160,6 @@ $(document).ready(function () {
         });
     }
 
-    // ✅ ADD QUESTION
     $("#addQuestion").click(function () {
 
         questionCount++;
@@ -200,65 +194,78 @@ $(document).ready(function () {
         $("#questions-container").append(html);
     });
 
-    // ✅ DELETE QUESTION
     $(document).on("click", ".delete-btn", function () {
         $(this).closest(".question-card").remove();
     });
 
-    // ✅ SUBMIT QUESTIONS
+
+
     $("#submitBtn").click(function () {
 
-        let examId = $("#examId").val();
+    let examId = $("#examId").val();
 
-        if (!examId) {
-            alert("❌ Select exam!");
-            return;
+    if (!examId) {
+        alert("Select exam!");
+        return;
+    }
+
+    let allQuestions = [];
+    let isValid = true; 
+
+    $(".question-card").each(function () {
+
+        let q = $(this);
+
+        let questionText = q.find(".question").val();
+        let answer = q.find("input[type=radio]:checked").val();
+
+        if (!questionText) {
+            alert("Question text is required!");
+            isValid = false;
+            return false;
         }
 
-        let allQuestions = [];
+        if (!answer) {
+            alert("Please select correct answer for every question!");
+            isValid = false;
+            return false;
+        }
 
-        $(".question-card").each(function () {
-
-            let q = $(this);
-
-            let questionText = q.find(".question").val();
-            let answer = q.find("input[type=radio]:checked").val();
-
-            if (!questionText || !answer) {
-                alert("❌ Fill all fields!");
-                return false;
-            }
-
-            allQuestions.push({
-                ExamId: parseInt(examId),
-                QuestionText: questionText,
-                OptionA: q.find(".optA").val(),
-                OptionB: q.find(".optB").val(),
-                OptionC: q.find(".optC").val(),
-                OptionD: q.find(".optD").val(),
-                CorrectAnswer: answer
-            });
-
-        });
-
-        console.log("Sending:", allQuestions);
-
-        $.ajax({
-            url: '@Url.Action("SaveQuestions","Admin")',
-            type: 'POST',
-            data: JSON.stringify(allQuestions),
-            contentType: 'application/json; charset=utf-8',
-            success: function (res) {
-                if (res.success) {
-                    alert("✅ Questions saved!");
-                    location.reload();
-                } else {
-                    alert(res.message);
-                }
-            }
+        allQuestions.push({
+            ExamId: parseInt(examId),
+            QuestionText: questionText,
+            OptionA: q.find(".optA").val(),
+            OptionB: q.find(".optB").val(),
+            OptionC: q.find(".optC").val(),
+            OptionD: q.find(".optD").val(),
+            CorrectAnswer: answer
         });
 
     });
+
+    if (!isValid) {
+        return;
+    }
+
+    console.log("Sending:", allQuestions);
+
+    $.ajax({
+        url: '@Url.Action("SaveQuestions","Admin")',
+        type: 'POST',
+        data: JSON.stringify(allQuestions),
+        contentType: 'application/json; charset=utf-8',
+        success: function (res) {
+            if (res.success) {
+                alert("Questions saved!");
+                location.reload();
+            } else {
+                alert(res.message);
+            }
+        }
+    });
+
+});
+
 
 });
 
